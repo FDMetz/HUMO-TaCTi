@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1738788513 source:c:\users\administrador\desktop\cosas\materias\estructuras de datos (verano)\clases\trabajopractico\main.c
+	<stdlib.h>
+	"menu.h"
+
+1738787714 c:\users\administrador\desktop\cosas\materias\estructuras de datos (verano)\clases\trabajopractico\menu.h
+	<stdio.h>
+
+1738861772 source:c:\users\administrador\desktop\cosas\materias\estructuras de datos (verano)\clases\trabajopractico\menu.c
+	"menu.h"
+
