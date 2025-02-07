@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "menu.h"
 
+#include "./librerias/AlgoritmoJuego/TaCti.h"
+
 int main()
 {
     char opcion='a';
@@ -11,6 +13,7 @@ int main()
         switch(opcion)
         {
         case 'A':
+            iniciarJuego();
             break;
         case 'B':
             break;

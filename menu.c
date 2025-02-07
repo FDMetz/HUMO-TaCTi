@@ -2,6 +2,7 @@
 
 char menuPrin()
 {
+
     char opcion='z';
 
     while( (opcion<65 || opcion>67) )
