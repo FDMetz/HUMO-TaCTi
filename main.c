@@ -1,6 +1,5 @@
 #include <stdlib.h>
-#include "menu.h"
-
+#include "./librerias/Menu/menu.h"
 #include "./librerias/AlgoritmoJuego/TaCti.h"
 
 int main()
