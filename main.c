@@ -23,8 +23,8 @@ int main()
             break;
         case 'C':
             printf("Seguro que desea salir del juego?(s/n)\n");
-            scanf("%c",&opcion);
-            getchar();
+            opcion=getchar();
+            while( getchar()!='\n' );
             break;
         }
     }
