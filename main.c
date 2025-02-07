@@ -1,6 +1,7 @@
 #include "./librerias/FuncionesDeJugar/funcionesDeJugar.h"
 #include "./librerias/Menu/menu.h"
 #include "./librerias/AlgoritmoJuego/TaCti.h"
+#include "./librerias/PrimitivasCola/PrimitivasCola.h"
 
 int main()
 {
@@ -9,14 +10,26 @@ int main()
 
     crearLista(&lista);
     srand(time(NULL));
+    system("cls");
+    printf("\033[5;1;36m|-------Bienvenido a TaCTi-------|\n");
+    printf("\033[0m");
     while( A_MAYUSCULA(opcion)!=83)
     {
+        printf("\nElige una opcion\n");
         opcion=menuPrin();
         switch(opcion)
         {
         case 'A':
             cargarJugadores(&lista);
-//            iniciarJuego();
+
+            t_cola cola;
+
+            crearCola(&cola);
+
+            cargarCoordenadas(&cola);
+
+            iniciarJuego(&lista, &cola);
+
             vaciarLista(&lista); //Para que no quede colgada la lista, más adelante se saca.
             break;
         case 'B':

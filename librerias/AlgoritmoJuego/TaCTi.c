@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "../PrimitivasCola/PrimitivasCola.h"
+#include "TaCTi.h"
+#include "windows.h"
+
+
+int iniciarPartida(tJugador *jugadorActual, t_cola *cola);
 
 int cargarCoordenadas(t_cola *cola);
 int buscarJugadaIA(t_cola *cola, int tablero[][3]);
@@ -11,6 +15,7 @@ void fichaAlAzar(int tablero[][3]);
 
 int comprobarVictoria(t_cola *cola, int tablero[][3], int idJugador);
 char devolverCaracter(int id, int turnoInicial);
+
 
 typedef struct{
     int coord1[2];
@@ -25,14 +30,30 @@ Valores del tablero para la lógica:
 - 2 -> ocupado por la IA
 */
 
-int iniciarJuego(void)
+
+void iniciarJuego(tLista *pl, t_cola *cCoordenadas){
+    int maxPartidas = 1; //cargar desde un archivo de configuracion
+    int i;
+    tJugador *jugadorInicial = malloc(sizeof(tJugador));
+    tJugador *jugadorActual = malloc(sizeof(tJugador));
+
+
+    sacarInicioLista(pl, jugadorActual, sizeof(tJugador));
+    memcpy(jugadorInicial, jugadorActual, sizeof(tJugador));
+
+    do{
+        for(i=0;i<maxPartidas;i++){
+            iniciarPartida(jugadorActual, cCoordenadas);
+        }
+        insertarAlFinal(pl, jugadorActual, sizeof(tJugador));
+    }while(sacarInicioLista(pl, jugadorActual, sizeof(tJugador)) && (jugadorInicial->idJugador != jugadorActual->idJugador));
+
+    free(jugadorActual);
+    free(jugadorInicial);
+}
+
+int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
 {
-    t_cola cola;
-
-    crearCola(&cola);
-
-    cargarCoordenadas(&cola);
-
     srand(time(NULL));
 
     int tablero[3][3] = {{0,0,0},{0,0,0},{0,0,0}};
@@ -43,10 +64,13 @@ int iniciarJuego(void)
     int turno = rand() % 2; // 0 -> Empieza el usuario || 1 -> Empieza la IA
     int turnoInicial = turno;
 
+
     while(nJugada < 9 && !victoria){ //El máximo de movimientos es 9
         if(turno == 0){
-            printf("[Ahora le toca a usted]\n");
+            system("cls");
+            printf("[Es el turno de %s - PUNTAJE ACTUAL: %d]\n", jugadorActual->nombre, jugadorActual->puntaje);
             mostrarTablero(tablero, 3, 3, turnoInicial);
+            printf("\nJuega con el simbolo: %c\n", devolverCaracter(1, turnoInicial));
             do{
                 printf("Seleccione una coordenada X del tablero: ");
                 scanf("%d", &coordenadaX);
@@ -61,26 +85,36 @@ int iniciarJuego(void)
             tablero[coordenadaX][coordenadaY] = 1;
 
             if(nJugada>=4+turnoInicial){ //Apartir de 4ta o 5ta jugada (depende de quien empieza) el usuario puede comprobar si gano
-                if(comprobarVictoria(&cola, tablero, 1)){ //Se pasa el numero que se quiere comprobar si completa una linea en el tablero
+                if(comprobarVictoria(cCoordenadas, tablero, 1)){ //Se pasa el numero que se quiere comprobar si completa una linea en el tablero
                     victoria = 1;
-                    printf("\n!Gana el usuario!\n");
+                    jugadorActual->puntaje += 3;
+
+                    system("cls");
+                    printf("\033[1;32m!Gana %s! +3 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->nombre, jugadorActual->puntaje);
+                    printf("\033[1;37m");
+                    mostrarTablero(tablero, 3, 3, turnoInicial);
+                    system("pause");
                 }
             }
             turno = 1;
         }else{
-            printf("[La IA ha puesto una ficha]\n");
             if(!victoria && nJugada < 9){ //Si no gano el usuario con el movimiento anterior y la jugada no fue la ultima (nJugada<4)
                 if(nJugada < 3 + turnoInicial){ //Si el turno inicial es del usuario (turno=0) entonces antes de 3 + 0 = 3 no hay posibilidad de bloqueo o de victoria.
                                                 //Si el turno inicial es de la IA (turno=1) entonces antes de 3 + 1 = 4 no hay posibiidad de bloqueo o de victoria.
                     fichaAlAzar(tablero);
                 }else{
-                    if(!buscarJugadaIA(&cola, tablero)){
+                    if(!buscarJugadaIA(cCoordenadas, tablero)){
                         fichaAlAzar(tablero);
                     }else{
-                        if(comprobarVictoria(&cola, tablero, 2)){
+                        if(comprobarVictoria(cCoordenadas, tablero, 2)){
+                            jugadorActual->puntaje -= 1;
                             victoria = 1;
-                            printf("\n!Gana la IA!\n");
 
+                            system("cls");
+                            printf("\033[1;31m!Gana la IA! -1 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->puntaje);
+                            printf("\033[1;37m");
+                            mostrarTablero(tablero, 3, 3, turnoInicial);
+                            system("pause");
                         }
                     }
                 }
@@ -92,15 +126,18 @@ int iniciarJuego(void)
     }
 
     if(!victoria){
-        printf("\nSE PRODUJO UN EMPATE!\n");
+        jugadorActual->puntaje += 2;
+        system("cls");
+        printf("\033[1;33mSE PRODUJO UN EMPATE! +2 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->puntaje);
+        printf("\033[1;37m");
+        mostrarTablero(tablero, 3, 3, turnoInicial);
+        system("pause");
     }
-
-    mostrarTablero(tablero, 3, 3, turnoInicial);
 
     return 0;
 }
 
-int comprobarVictoria(t_cola *cola, int tablero[][3], int idJugador){
+int comprobarVictoria(t_cola *cCoordenadas, int tablero[][3], int idJugador){
 
     int victoria = 0;
     int i = 0;
@@ -109,8 +146,8 @@ int comprobarVictoria(t_cola *cola, int tablero[][3], int idJugador){
     t_coords *coords = malloc(sizeof(t_coords));
 
     while(i<9 && !victoria){ //9 es la maxima cantidad de lineas posibles.
-        quitarDeCola(cola, coords, sizeof(t_coords)); //Recuperamos las coordenadas
-        agregarCola(cola, coords, sizeof(t_coords));  //Las volvemos a agregar para no perderlas
+        quitarDeCola(cCoordenadas, coords, sizeof(t_coords)); //Recuperamos las coordenadas
+        agregarCola(cCoordenadas, coords, sizeof(t_coords));  //Las volvemos a agregar para no perderlas
 
         x1 = (coords->coord1)[0];
         y1 = (coords->coord1)[1];
@@ -132,7 +169,7 @@ int comprobarVictoria(t_cola *cola, int tablero[][3], int idJugador){
     return victoria;
 }
 
-int buscarJugadaIA(t_cola *cola, int tablero[][3]){
+int buscarJugadaIA(t_cola *cCoordenadas, int tablero[][3]){
 
     int i = 0;
     int j;
@@ -153,8 +190,8 @@ int buscarJugadaIA(t_cola *cola, int tablero[][3]){
     while(!jugadaVictoria && i<9){ //Mientras no haya una jugada de victoria y no se hayan recorrido todas las lineas
         //Coordenadas de una linea, ej: {0,0}   {1,0}   {2,0} -> columna1
                                      //{x1,y1} {x2,y2} {x3,y3}
-        quitarDeCola(cola, coords, sizeof(t_coords)); //Recuperamos las coordenadas de la cola
-        agregarCola(cola, coords, sizeof(t_coords));  //Las volvemos a agregar al final para no perderlas
+        quitarDeCola(cCoordenadas, coords, sizeof(t_coords)); //Recuperamos las coordenadas de la cCoordenadas
+        agregarCola(cCoordenadas, coords, sizeof(t_coords));  //Las volvemos a agregar al final para no perderlas
 
         vCoords[0] = (coords->coord1)[0];
         vCoords[1] = (coords->coord1)[1];
@@ -204,7 +241,7 @@ void realizarJugadaIA(int *vCoords, unsigned tamVec, int tablero[][3]){
     tablero[*(vCoords+i)][*(vCoords+i+1)] = 2;
 }
 
-int cargarCoordenadas(t_cola *cola){
+int cargarCoordenadas(t_cola *cCoordenadas){
 
     FILE *pf;
 
@@ -219,7 +256,7 @@ int cargarCoordenadas(t_cola *cola){
     fread(coord, sizeof(t_coords), 1, pf);
 
     while(!feof(pf)){
-        agregarCola(cola, coord, sizeof(t_coords));
+        agregarCola(cCoordenadas, coord, sizeof(t_coords));
         fread(coord, sizeof(t_coords), 1, pf);
     }
 
@@ -249,7 +286,7 @@ void mostrarTablero(int tablero[][3], int fil, int col, int turnoInicial){
     printf("\n");
 
     for(i=0;i<fil;i++){
-        printf("|");
+        printf("            |");
         for(j=0;j<col;j++){
             printf("  %c  ", devolverCaracter(tablero[i][j], turnoInicial) );
             if(j<3){
@@ -259,7 +296,7 @@ void mostrarTablero(int tablero[][3], int fil, int col, int turnoInicial){
         printf("\n");
 
         if(i<2){
-            printf("------+-----+------\n");
+            printf("            ------+-----+------\n");
         }
     }
 

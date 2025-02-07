@@ -8,8 +8,9 @@ typedef struct
 {
     char nombre[TAM_NOM];
     int puntaje;
+    int idJugador;
 }tJugador;
 
-int compPuntaje(const void*,const void*);
+int compId(const void*,const void*);
 void resetearPuntajeImprimirNombre(void*);
 #endif // JUGADOR_H_INCLUDED

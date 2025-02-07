@@ -12,7 +12,7 @@
 #define SALIO_BIEN 1
 #define SALIO_MAL 0
 #define DUPLICADO 2
-
+#define MINIMO(x,y) ((x)<=(y)) ? (x) : (y)
 typedef struct sNodo
 {
     void *info;
@@ -30,5 +30,8 @@ void vaciarLista(tLista*);
 int insertarOrdenado(tLista*,const void*,unsigned,funCmp,funAct actualizar,bool orden);
 bool buscarClave(tLista*,void*,funCmp);
 void mapearLista(tLista*,funAccion);
+
+int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam);
+int sacarInicioLista(tLista *iniLista, void *dato, unsigned tam);
 
 #endif // LISTASIMPLEMENTEENLAZADA_H_INCLUDED

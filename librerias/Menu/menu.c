@@ -10,6 +10,7 @@ char menuPrin()
         printf("[A]Jugar\n"
                "[B]Ver ranking equipo\n"
                "[C]Salir\n");
+        printf("Opcion: ");
         scanf("%c",&opcion);
         getchar();
         opcion=A_MAYUSCULA(opcion);

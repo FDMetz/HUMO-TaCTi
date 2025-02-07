@@ -48,6 +48,55 @@ int insertarOrdenado(tLista* pl,const void* info,unsigned tamInfo,funCmp compara
     *pl=nue;
     return SALIO_BIEN;
 }
+
+int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam){
+
+    tNodo *nuevoNodo = malloc(sizeof(tNodo));
+
+    if(!nuevoNodo){
+        return 0;
+    }
+
+    nuevoNodo->info = malloc(tam);
+
+    if(nuevoNodo->info == NULL){
+        free(nuevoNodo);
+        return 0;
+    }
+
+    memcpy(nuevoNodo->info, dato, tam);
+    nuevoNodo->tamInfo = tam;
+    nuevoNodo->sig = NULL;
+
+    while(*iniLista != NULL){ //Recorremos toda la lista hasta encontrar el nodo
+                              //que apunte a nulo.
+        iniLista = &((*iniLista)->sig);
+    }
+
+    *iniLista = nuevoNodo;
+
+    return 1;
+}
+
+int sacarInicioLista(tLista *iniLista, void *dato, unsigned tam){
+    tNodo *aux;
+
+    if(*iniLista==NULL){
+        return 0;
+    }
+
+    memcpy(dato, (*iniLista)->info, MINIMO(tam, (*iniLista)->tamInfo));
+
+    aux = *iniLista;
+
+    *iniLista = (*iniLista)->sig;
+
+    free(aux->info);
+    free(aux);
+
+    return 1;
+}
+
 bool buscarClave(tLista*pLista,void*clave,funCmp comparar)
 {
     int resultado=-1;
