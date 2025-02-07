@@ -31,13 +31,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="librerias/FuncionesDeJugar/funcionesDeJugar.h" />
+		<Unit filename="librerias/FuncionesDeJugar/funcionesDejugar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="librerias/Jugador/jugador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="librerias/Jugador/jugador.h" />
+		<Unit filename="librerias/ListaSimplementeEnlazada/listaSimplementeEnlazada.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="librerias/ListaSimplementeEnlazada/listaSimplementeEnlazada.h" />
+		<Unit filename="librerias/Menu/menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="librerias/Menu/menu.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="menu.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="menu.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

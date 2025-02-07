@@ -36,3 +36,40 @@
 1738925690 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\librerias\primitivascola\primitivascola.c
 	"PrimitivasCola.h"
 
+1738939731 source:c:\users\administrador\documents\github\humo-tacti\librerias\funcionesdejugar\funcionesdejugar.c
+	"funcionesDeJugar.h"
+
+1738939157 c:\users\administrador\documents\github\humo-tacti\librerias\funcionesdejugar\funcionesdejugar.h
+	<time.h>
+	<time.h>
+	"../Jugador/jugador.h"
+	"../ListaSimplementeEnlazada/listaSimplementeEnlazada.h"
+
+1738937602 c:\users\administrador\documents\github\humo-tacti\librerias\jugador\jugador.h
+	<stdio.h>
+
+1738939731 c:\users\administrador\documents\github\humo-tacti\librerias\listasimplementeenlazada\listasimplementeenlazada.h
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1738937619 source:c:\users\administrador\documents\github\humo-tacti\librerias\jugador\jugador.c
+	"jugador.h"
+
+1738936767 source:c:\users\administrador\documents\github\humo-tacti\librerias\listasimplementeenlazada\listasimplementeenlazada.c
+	"listaSimplementeEnlazada.h"
+
+1738938055 source:c:\users\administrador\documents\github\humo-tacti\librerias\menu\menu.c
+	"menu.h"
+
+1738862015 c:\users\administrador\documents\github\humo-tacti\librerias\menu\menu.h
+	<stdio.h>
+
+1738939809 source:c:\users\administrador\documents\github\humo-tacti\main.c
+	"./librerias/FuncionesDeJugar/funcionesDeJugar.h"
+	"./librerias/Menu/menu.h"
+	"./librerias/AlgoritmoJuego/TaCti.h"
+
+1738938055 c:\users\administrador\documents\github\humo-tacti\librerias\algoritmojuego\tacti.h
+
