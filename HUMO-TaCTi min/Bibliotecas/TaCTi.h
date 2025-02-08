@@ -19,7 +19,6 @@ typedef struct
     int coord3[2];
 }t_coords;
 
-void menu();
 int iniciarPartida(tJugador *jugadorActual, t_cola *cola);
 void iniciarJuego(tLista *pl, t_cola *cCoordenadas, int maxPartidas) ;
 int cargarCoordenadas(t_cola *cola);
