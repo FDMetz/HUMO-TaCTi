@@ -1,58 +1,5 @@
 #include "TaCTi.h"
 
-void menu()
-{
-    char opcion;
-    tLista lista;
-    crearLista(&lista);
-    t_cola cola;
-    crearCola(&cola);
-    srand(time(NULL));
-    system("cls");
-
-    printf("\033[5;1;36m|------- Bienvenido a TaCTi -------|\n");
-    printf("\033[0m");
-
-    do
-    {
-        printf("[A] Jugar\n");
-        printf("[B] Ver ranking equipo\n");
-        printf("[C] Salir\n");
-        printf("\n");
-        printf("Seleccione una opcion: ");
-        scanf("%c", &opcion);
-        getchar();
-
-        switch(opcion)
-        {
-        case 'A':
-        case 'a':
-            cargarJugadores(&lista);
-            cargarCoordenadas(&cola);
-            iniciarJuego(&lista, &cola);
-            vaciarLista(&lista); //Para que no quede colgada la lista, más adelante se saca.
-            break;
-
-        case 'B':
-        case 'b':
-            break;
-
-        case 'C':
-        case 'c':
-            printf("\nSaliendo del programa. Hasta luego!\n");
-            break;
-
-        default:
-            printf("\nOpcion no valida. Intente nuevamente.\n");
-            printf("\nPresione cualquier tecla para continuar...\n");
-            getchar(); // Esperar una tecla para continuar
-            getchar(); // Asegurar que no se salte por buffer
-            break;
-        }
-    }
-    while (opcion != 'C' && opcion != 'c');
-}
-
 void iniciarJuego(tLista *pl, t_cola *cCoordenadas)
 {
     int maxPartidas = 1; //cargar desde un archivo de configuracion
@@ -101,12 +48,18 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
             printf("\nJuega con el simbolo: %c\n", devolverCaracter(1, turnoInicial));
             do
             {
-                printf("Seleccione una coordenada Y del tablero: ");
-                scanf("%d", &coordenadaX);
-                getchar();
-                printf("Seleccione una coordenada X del tablero: ");
-                scanf("%d", &coordenadaY);
-                getchar();
+                do{
+                    printf("Seleccione una coordenada \033[1;34mY\033[0m del tablero: ");
+                    scanf("%d", &coordenadaX);
+                    getchar();
+                }while(coordenadaX!=0 && coordenadaX!=1 && coordenadaX !=2);
+
+                do{
+                    printf("Seleccione una coordenada \033[0;35mX\033[0m del tablero: ");
+                    scanf("%d", &coordenadaY);
+                    getchar();
+                }while(coordenadaY!=0 && coordenadaY!=1 && coordenadaY !=2);
+
                 printf("\n");
             }
             while(tablero[coordenadaX][coordenadaY]!=0);  //Si el casillero está ocupado le pedimos que ingrese otra coordenada
@@ -132,7 +85,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
         }
         else
         {
-            if(!victoria && nJugada < 9)  //Si no gano el usuario con el movimiento anterior y la jugada no fue la ultima (nJugada<4)
+            if(!victoria && nJugada < 9)  //Si no gano el usuario con el movimiento anterior y la jugada no fue la ultima (nJugada<9)
             {
                 if(nJugada < 3 + turnoInicial)  //Si el turno inicial es del usuario (turno=0) entonces antes de 3 + 0 = 3 no hay posibilidad de bloqueo o de victoria.
                 {
@@ -349,26 +302,28 @@ void mostrarTablero(int tablero[][3], int fil, int col, int turnoInicial)
 
     // Imprimir encabezados de columnas
     printf("\n");
-    printf("    0   1   2\n");
-    printf("  -------------\n");
+    printf("\033[1;34m                0     1     2\n\033[0m");
+
+    printf("             -------------------\n");
 
     for (i = 0; i < fil; i++)
     {
         // Etiqueta de fila
-        printf("%d |", i);
+        printf("\033[0;35m           %d \033[0m|", i);
 
         for (j = 0; j < col; j++)
         {
             // Imprime el valor del tablero usando devolverCaracter()
-            char simbolo = devolverCaracter(tablero[i][j], turnoInicial);
-            if (simbolo != ' ')
-                printf(" %c |", simbolo);
-            else
-                printf("   |");
+            printf("  %c  |", devolverCaracter(tablero[i][j], turnoInicial)); //La función ya devuelve y poner directamente el ' ', no hay que comprobarlo y ponerlo manualmente
         }
 
         printf("\n");
-        printf("  -------------\n"); // Línea entre filas
+        if(i<fil-1){
+            printf("             ------+-----+------\n"); // Línea entre filas
+        }else{
+            printf("             -------------------\n");
+        }
+
     }
 
     printf("\n");

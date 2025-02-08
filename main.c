@@ -26,7 +26,7 @@ int main()
 
             crearCola(&cola);
 
-            cargarCoordenadas(&cola);
+            cargarCoordenadas(&cola); //Buscar como reubicar esto (!)
 
             iniciarJuego(&lista, &cola);
 
