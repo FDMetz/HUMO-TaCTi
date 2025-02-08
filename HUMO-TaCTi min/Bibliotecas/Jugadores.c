@@ -25,7 +25,7 @@ int cargarJugadores(tLista *pLista)
     do
     {
         system("cls");
-        printf("Ingrese nombre: ");
+        printf("Ingrese Nombre del Jugador: ");
         fgets(juga.nombre,TAM_NOM,stdin);
         pAux=strchr(juga.nombre,'\n');
         if(*pAux)
@@ -42,14 +42,14 @@ int cargarJugadores(tLista *pLista)
             return TE_FALTA_MEMORIA;
         }
 
-        printf("Ingresar mas jugadores? (s/n): ");
+        printf("\nIngresar Mas Jugadores? (s/n): ");
         opc=getchar();
-        while( getchar()!='\n' );
+        while(getchar()!='\n' );
     }
     while(A_MINUSCULA(opc)=='s');
 
     system("cls");
-    printf("Orden de los jugadores:\n");
+    printf("Orden de los Jugadores:\n");
     mapearLista(pLista,resetearPuntajeImprimirNombre);
     printf("\nPresione cualquier tecla para continuar...\n");
     getchar(); // Esperar una tecla para continuar

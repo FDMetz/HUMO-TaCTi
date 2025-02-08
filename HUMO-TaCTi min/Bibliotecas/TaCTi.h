@@ -19,8 +19,9 @@ typedef struct
     int coord3[2];
 }t_coords;
 
+void menu();
 int iniciarPartida(tJugador *jugadorActual, t_cola *cola);
-void iniciarJuego(tLista *pl, t_cola *cCoordenadas, int maxPartidas) ;
+void iniciarJuego(tLista *pl, t_cola *cCoordenadas, int maxPartidas);
 int cargarCoordenadas(t_cola *cola);
 int buscarJugadaIA(t_cola *cola, int tablero[][3]);
 void mostrarTablero(int tablero[][3], int fil, int col, int turnoInicial);

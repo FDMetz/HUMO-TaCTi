@@ -81,3 +81,53 @@
 1739044673 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\main.c
 	"Bibliotecas/TaCTi.h"
 
+1739054007 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\archivos.c
+	"Archivos.h"
+
+1739053617 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\archivos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1738984278 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
+	"Jugadores.h"
+
+1738980110 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
+	<stdio.h>
+	<ctype.h>
+	"tLista.h"
+
+1738979619 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tlista.h
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1738972664 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tcola.c
+	"tCola.h"
+
+1738972736 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tcola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1739057311 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tacti.c
+	"TaCTi.h"
+
+1739055017 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tacti.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<windows.h>
+	"tLista.h"
+	"tCola.h"
+	"Jugadores.h"
+	"Archivos.h"
+
+1738978996 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tlista.c
+	"tLista.h"
+
+1739056903 source:d:\studies\github\humo-tacti\humo-tacti min\main.c
+	"Bibliotecas/TaCTi.h"
+
