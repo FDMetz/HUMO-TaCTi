@@ -49,13 +49,13 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
             do
             {
                 do{
-                    printf("Seleccione una coordenada \033[1;34mY\033[0m del tablero: ");
+                    printf("Seleccione una coordenada \033[0;35mX\033[0m del tablero: ");
                     scanf("%d", &coordenadaX);
                     getchar();
                 }while(coordenadaX!=0 && coordenadaX!=1 && coordenadaX !=2);
 
                 do{
-                    printf("Seleccione una coordenada \033[0;35mX\033[0m del tablero: ");
+                    printf("Seleccione una coordenada \033[1;34mY\033[0m del tablero: ");
                     scanf("%d", &coordenadaY);
                     getchar();
                 }while(coordenadaY!=0 && coordenadaY!=1 && coordenadaY !=2);
