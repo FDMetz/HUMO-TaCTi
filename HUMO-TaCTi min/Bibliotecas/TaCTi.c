@@ -305,7 +305,7 @@ int cargarCoordenadas(t_cola *cCoordenadas)
 
     FILE *pf;
 
-    pf = fopen("librerias/AlgoritmoJuego/coordenadas.dat", "rb");
+    pf = fopen("Bibliotecas/coordenadas.dat", "rb");
 
     if(!pf)
     {
