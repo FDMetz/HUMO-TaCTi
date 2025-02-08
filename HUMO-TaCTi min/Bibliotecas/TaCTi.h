@@ -10,6 +10,7 @@
 #include "tLista.h"
 #include "tCola.h"
 #include "Jugadores.h"
+#include "Archivos.h"
 
 typedef struct
 {
@@ -20,7 +21,7 @@ typedef struct
 
 void menu();
 int iniciarPartida(tJugador *jugadorActual, t_cola *cola);
-void iniciarJuego(tLista *pl, t_cola *coordenadas);
+void iniciarJuego(tLista *pl, t_cola *cCoordenadas, int maxPartidas) ;
 int cargarCoordenadas(t_cola *cola);
 int buscarJugadaIA(t_cola *cola, int tablero[][3]);
 void mostrarTablero(int tablero[][3], int fil, int col, int turnoInicial);

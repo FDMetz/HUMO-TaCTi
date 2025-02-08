@@ -4,9 +4,20 @@ void menu()
 {
     char opcion;
     tLista lista;
-    crearLista(&lista);
     t_cola cola;
+    Config config;
+
+    // Crear lista y cola
+    crearLista(&lista);
     crearCola(&cola);
+
+    // Leer configuración desde el archivo
+    if (!leerConfig("config.txt", &config))
+    {
+        printf("Error al cargar la configuración. Saliendo del programa...\n");
+        return;
+    }
+
     srand(time(NULL));
     system("cls");
 
@@ -23,18 +34,24 @@ void menu()
         scanf("%c", &opcion);
         getchar();
 
-        switch(opcion)
+        switch (opcion)
         {
         case 'A':
         case 'a':
+            // Cargar jugadores y coordenadas
             cargarJugadores(&lista);
             cargarCoordenadas(&cola);
-            iniciarJuego(&lista, &cola);
-            vaciarLista(&lista); //Para que no quede colgada la lista, más adelante se saca.
+
+            // Iniciar el juego con la cantidad de partidas de la configuración
+            iniciarJuego(&lista, &cola, config.cantidadPartidas);
+
+            // Vaciar la lista después del juego para evitar datos colgados
+            vaciarLista(&lista);
             break;
 
         case 'B':
         case 'b':
+            printf("\nNope.\n");
             break;
 
         case 'C':
@@ -43,36 +60,35 @@ void menu()
             break;
 
         default:
-            printf("\nOpcion no valida. Intente nuevamente.\n");
+            printf("\nOpción no válida. Intente nuevamente.\n");
             printf("\nPresione cualquier tecla para continuar...\n");
             getchar(); // Esperar una tecla para continuar
-            getchar(); // Asegurar que no se salte por buffer
             break;
         }
     }
     while (opcion != 'C' && opcion != 'c');
 }
-
-void iniciarJuego(tLista *pl, t_cola *cCoordenadas)
+void iniciarJuego(tLista *pl, t_cola *cCoordenadas, int maxPartidas)
 {
-    int maxPartidas = 1; //cargar desde un archivo de configuracion
     int i;
     tJugador *jugadorInicial = malloc(sizeof(tJugador));
     tJugador *jugadorActual = malloc(sizeof(tJugador));
 
-
+    // Sacar al primer jugador de la lista
     sacarInicioLista(pl, jugadorActual, sizeof(tJugador));
     memcpy(jugadorInicial, jugadorActual, sizeof(tJugador));
 
     do
     {
-        for(i=0; i<maxPartidas; i++)
-        {
+        // Cada jugador juega la cantidad de partidas especificada
+        for (i = 0; i < maxPartidas; i++)
             iniciarPartida(jugadorActual, cCoordenadas);
-        }
+
+        // Reinsertar el jugador al final de la lista
         insertarAlFinal(pl, jugadorActual, sizeof(tJugador));
     }
-    while(sacarInicioLista(pl, jugadorActual, sizeof(tJugador)) && (jugadorInicial->idJugador != jugadorActual->idJugador));
+    while (sacarInicioLista(pl, jugadorActual, sizeof(tJugador)) &&
+            (jugadorInicial->idJugador != jugadorActual->idJugador));
 
     free(jugadorActual);
     free(jugadorInicial);
@@ -125,7 +141,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
                     printf("\033[1;32m!Gana %s! +3 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->nombre, jugadorActual->puntaje);
                     printf("\033[1;37m");
                     mostrarTablero(tablero, 3, 3, turnoInicial);
-                    system("pause");
+                    printf("\nPresione cualquier tecla para continuar...\n");
+                    getchar(); // Esperar una tecla para continuar
                 }
             }
             turno = 1;
@@ -156,7 +173,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
                             printf("\033[1;31m!Gana la IA! -1 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->puntaje);
                             printf("\033[1;37m");
                             mostrarTablero(tablero, 3, 3, turnoInicial);
-                            system("pause");
+                            printf("\nPresione cualquier tecla para continuar...\n");
+                            getchar(); // Esperar una tecla para continuar
                         }
                     }
                 }
@@ -174,7 +192,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
         printf("\033[1;33mSE PRODUJO UN EMPATE! +2 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->puntaje);
         printf("\033[1;37m");
         mostrarTablero(tablero, 3, 3, turnoInicial);
-        system("pause");
+        printf("\nPresione cualquier tecla para continuar...\n");
+        getchar(); // Esperar una tecla para continuar
     }
 
     return 0;
