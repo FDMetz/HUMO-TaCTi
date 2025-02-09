@@ -40,7 +40,7 @@
 1738983277 source:d:\studies\university\ayed\humo-tacti\bibliotecas\jugadores.c
 	"Jugadores.h"
 
-1738985932 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
+1739057696 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
 	"Jugadores.h"
 
 1738985932 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
@@ -54,10 +54,10 @@
 	<stdlib.h>
 	<string.h>
 
-1739046228 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
+1739059358 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
 	"TaCTi.h"
 
-1739044605 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.h
+1739057696 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -66,6 +66,7 @@
 	"tLista.h"
 	"tCola.h"
 	"Jugadores.h"
+	"Archivos.h"
 
 1738985932 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tcola.h
 	<stdio.h>
@@ -78,7 +79,7 @@
 1738985932 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.c
 	"tLista.h"
 
-1739044673 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\main.c
+1739059158 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\main.c
 	"Bibliotecas/TaCTi.h"
 
 1739054007 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\archivos.c
@@ -130,4 +131,12 @@
 
 1739056903 source:d:\studies\github\humo-tacti\humo-tacti min\main.c
 	"Bibliotecas/TaCTi.h"
+
+1739057696 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1739057696 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.c
+	"Archivos.h"
 
