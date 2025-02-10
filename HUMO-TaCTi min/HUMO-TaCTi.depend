@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1739182910 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.c
+1739184980 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.c
 	"Archivos.h"
 
 1739182920 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.h
@@ -8,7 +8,7 @@
 	<string.h>
 	"Jugadores.h"
 
-1739183968 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
+1739184250 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
 	"Jugadores.h"
 
 1739184060 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
@@ -47,6 +47,7 @@
 	"Jugadores.h"
 	"Archivos.h"
 
-1739183970 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
+1739224324 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
 	"TaCTi.h"
+	<mmsystem.h>
 
