@@ -22,8 +22,7 @@ void menu()
     srand(time(NULL));
     system("cls");
 
-    printf("\033[5;1;36m|------- Bienvenido a TaCTi -------|\n");
-    printf("\033[0m");
+    printf("\033[5;1;36m|<><><><><>|\033[5;1;35mBienvenidos a TaCTi\033[5;1;36m|<><><><><>|\n\033[0m");
 
     do
     {
@@ -33,6 +32,7 @@ void menu()
         printf("\n");
         printf("Seleccione una opcion: ");
         scanf("%c", &opcion);
+
         getchar();
 
         switch (opcion)
@@ -122,29 +122,29 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
         if(turno == 0)
         {
             system("cls");
-            printf("[Es el turno de %s - PUNTAJE ACTUAL: %d]\n", jugadorActual->nombre, jugadorActual->puntaje);
+            printf("[Es el turno de \033[1;36m%s\033[0m - PUNTAJE ACTUAL: %d]\n", jugadorActual->nombre, jugadorActual->puntaje);
             mostrarTablero(tablero, 3, 3, turnoInicial);
             printf("\nJuega con el simbolo: %c\n", devolverCaracter(1, turnoInicial));
             do
             {
                 do{
                     printf("Seleccione una coordenada \033[0;35mY\033[0m del tablero: ");
-                    scanf("%d", &coordenadaX);
-                    getchar();
-                }while(coordenadaX!=0 && coordenadaX!=1 && coordenadaX !=2);
-
-                do{
-                    printf("Seleccione una coordenada \033[1;34mX\033[0m del tablero: ");
                     scanf("%d", &coordenadaY);
                     getchar();
                 }while(coordenadaY!=0 && coordenadaY!=1 && coordenadaY !=2);
 
+                do{
+                    printf("Seleccione una coordenada \033[1;34mX\033[0m del tablero: ");
+                    scanf("%d", &coordenadaX);
+                    getchar();
+                }while(coordenadaX!=0 && coordenadaX!=1 && coordenadaX !=2);
+
                 printf("\n");
             }
-            while(tablero[coordenadaX][coordenadaY]!=0);  //Si el casillero está ocupado le pedimos que ingrese otra coordenada
+            while(tablero[coordenadaY][coordenadaX]!=0);  //Si el casillero está ocupado le pedimos que ingrese otra coordenada
 
 
-            tablero[coordenadaX][coordenadaY] = 1;
+            tablero[coordenadaY][coordenadaX] = 1;
 
             if(nJugada>=4+turnoInicial)  //Apartir de 4ta o 5ta jugada (depende de quien empieza) el usuario puede comprobar si gano
             {
@@ -154,8 +154,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
                     jugadorActual->puntaje += 3;
 
                     system("cls");
-                    printf("\033[1;32m!Gana %s! +3 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->nombre, jugadorActual->puntaje);
-                    printf("\033[1;37m");
+                    printf("\033[1;32m!Gana %s! +3 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->nombre, jugadorActual->puntaje);
                     mostrarTablero(tablero, 3, 3, turnoInicial);
                     printf("\nPresione cualquier tecla para continuar...\n");
                     getchar(); // Esperar una tecla para continuar
@@ -186,8 +185,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
                             victoria = 1;
 
                             system("cls");
-                            printf("\033[1;31m!Gana la IA! -1 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->puntaje);
-                            printf("\033[1;37m");
+                            printf("\033[1;31m!Gana la IA! -1 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->puntaje);
                             mostrarTablero(tablero, 3, 3, turnoInicial);
                             printf("\nPresione cualquier tecla para continuar...\n");
                             getchar(); // Esperar una tecla para continuar
@@ -205,8 +203,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
     {
         jugadorActual->puntaje += 2;
         system("cls");
-        printf("\033[1;33mSE PRODUJO UN EMPATE! +2 PUNTOS --> PUNTAJE ACTUAL: %d\n", jugadorActual->puntaje);
-        printf("\033[1;37m");
+        printf("\033[1;33mSE PRODUJO UN EMPATE! +2 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->puntaje);
         mostrarTablero(tablero, 3, 3, turnoInicial);
         printf("\nPresione cualquier tecla para continuar...\n");
         getchar(); // Esperar una tecla para continuar
@@ -220,7 +217,7 @@ int comprobarVictoria(t_cola *cCoordenadas, int tablero[][3], int idJugador)
 
     int victoria = 0;
     int i = 0;
-    int x1, y1, x2, y2, x3, y3;
+    int x1, y1, x2, y2, x3, y3; //Representan las posiciones de la matriz
 
     t_coords *coords = malloc(sizeof(t_coords));
 
@@ -229,14 +226,14 @@ int comprobarVictoria(t_cola *cCoordenadas, int tablero[][3], int idJugador)
         quitarDeCola(cCoordenadas, coords, sizeof(t_coords)); //Recuperamos las coordenadas
         agregarCola(cCoordenadas, coords, sizeof(t_coords));  //Las volvemos a agregar para no perderlas
 
-        x1 = (coords->coord1)[0];
-        y1 = (coords->coord1)[1];
-        x2 = (coords->coord2)[0];
-        y2 = (coords->coord2)[1];
-        x3 = (coords->coord3)[0];
-        y3 = (coords->coord3)[1];
+        y1 = (coords->coord1)[0];
+        x1 = (coords->coord1)[1];
+        y2 = (coords->coord2)[0];
+        x2 = (coords->coord2)[1];
+        y3 = (coords->coord3)[0];
+        x3 = (coords->coord3)[1];
 
-        if(tablero[x1][y1] == idJugador && tablero[x2][y2] == idJugador && tablero[x3][y3] == idJugador)  //Si todas las coordenadas de la línea tienen
+        if(tablero[y1][x1] == idJugador && tablero[y2][x2] == idJugador && tablero[y3][x3] == idJugador)  //Si todas las coordenadas de la línea tienen
         {
             //el numero del jugador => ganó
             victoria = 1;
@@ -273,7 +270,7 @@ int buscarJugadaIA(t_cola *cCoordenadas, int tablero[][3])
     while(!jugadaVictoria && i<9)  //Mientras no haya una jugada de victoria y no se hayan recorrido todas las lineas
     {
         //Coordenadas de una linea, ej: {0,0}   {1,0}   {2,0} -> columna1
-        //{x1,y1} {x2,y2} {x3,y3}
+        //{y1,x1} {y2,x2} {y3,x3}
         quitarDeCola(cCoordenadas, coords, sizeof(t_coords)); //Recuperamos las coordenadas de la cCoordenadas
         agregarCola(cCoordenadas, coords, sizeof(t_coords));  //Las volvemos a agregar al final para no perderlas
 
