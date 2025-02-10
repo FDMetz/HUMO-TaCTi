@@ -28,3 +28,16 @@ int leerConfig(const char *nombreArchivo, Config *config)
     fclose(archivo);
     return 1;
 }
+
+int crearInforme(FILE **pfInforme){
+    *pfInforme = fopen("informe-juego.txt", "wt"); //--> Falta la fecha
+
+    if(!(*pfInforme)){
+        printf("No se pudo crear el informe...");
+        return 0;
+    }
+
+    return 1;
+}
+
+

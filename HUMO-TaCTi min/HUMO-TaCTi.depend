@@ -1,21 +1,22 @@
 # depslib dependency file v1.0
-1739057696 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.c
+1739182910 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.c
 	"Archivos.h"
 
-1739057696 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.h
+1739182920 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-
-1739172053 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
 	"Jugadores.h"
 
-1738985932 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
+1739183968 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
+	"Jugadores.h"
+
+1739184060 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
 	<stdio.h>
 	<ctype.h>
 	"tLista.h"
 
-1738985932 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.h
+1739184002 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.h
 	<stdbool.h>
 	<stdio.h>
 	<stdlib.h>
@@ -29,13 +30,13 @@
 	<stdlib.h>
 	<string.h>
 
-1738985932 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.c
+1739184031 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.c
 	"tLista.h"
 
 1739066303 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\main.c
 	"Bibliotecas/TaCTi.h"
 
-1739057696 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.h
+1739181872 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -46,6 +47,6 @@
 	"Jugadores.h"
 	"Archivos.h"
 
-1739173479 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
+1739183970 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
 	"TaCTi.h"
 

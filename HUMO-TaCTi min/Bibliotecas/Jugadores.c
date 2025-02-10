@@ -57,3 +57,39 @@ int cargarJugadores(tLista *pLista)
 
     return SALIO_BIEN;
 }
+
+int compararPuntos(const void *a, const void *b){
+  return ((tJugador*)a)->puntaje - ((tJugador*)b)->puntaje;
+}
+
+void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida, unsigned condicion){
+
+    char condicionTxt[10];
+    int puntos;
+
+    if(nPartida-1 == 0){
+        fprintf(pfInforme, "Partidas jugadas por %s:\n", jugadorActual->nombre);
+    }
+
+    switch(condicion){
+        case 0:
+            strcpy(condicionTxt, "Empató");
+            puntos = 2;
+        break;
+        case 1:
+            strcpy(condicionTxt, "Ganó");
+            puntos = 3;
+        break;
+        case 2:
+            strcpy(condicionTxt, "Perdió");
+            puntos = -1;
+        break;
+    }
+
+    fprintf(pfInforme, "- Partida %d | Condición: %s | Puntos: %d\n", nPartida, condicionTxt, puntos);
+}
+void agregarRankingAInforme(void *dato, FILE *pfInforme){
+    tJugador *jugador = (tJugador*)dato;
+    fprintf(pfInforme, "Jugador: %s | Puntos: %d\n", jugador->nombre, jugador->puntaje);
+}
+

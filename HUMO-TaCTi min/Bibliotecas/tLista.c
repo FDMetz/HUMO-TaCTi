@@ -115,3 +115,46 @@ void mapearLista(tLista*pLista,funAccion accion)
         pLista=&(*pLista)->sig;
     }
 }
+
+void mapearListaConArchivo(tLista*pLista, FILE *arch, funAccionConArch accion)
+{
+    while(*pLista)
+    {
+        accion((*pLista)->info, arch);
+        pLista=&(*pLista)->sig;
+    }
+}
+
+int insertarOrdenadamente(tLista *lista, const void *dato, unsigned tam, int dup, int cmp(const void*,const void*)){
+
+    int res;
+
+    while(*lista != NULL && (res = cmp((*lista)->info, dato))>0){
+        lista = &(*lista)->sig;
+    }
+
+    if(res==0 && !dup){
+        return 2;
+    }
+
+    tNodo *nuevoNodo = malloc(sizeof(tNodo));
+
+    if(!nuevoNodo){
+        return 0;
+    }
+
+    nuevoNodo->info = malloc(tam);
+
+    if(nuevoNodo->info == NULL){
+        free(nuevoNodo);
+        return 0;
+    }
+
+    memcpy(nuevoNodo->info, dato, tam);
+    nuevoNodo->tamInfo = tam;
+
+    nuevoNodo->sig = *lista;
+    *lista = nuevoNodo;
+
+    return 1;
+}

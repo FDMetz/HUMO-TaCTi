@@ -17,5 +17,8 @@ typedef struct
 int compId(const void*,const void*);
 void resetearPuntajeImprimirNombre(void*);
 int cargarJugadores(tLista *pLista);
+int compararPuntos(const void *a, const void *b);
+void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida, unsigned condicion);
+void agregarRankingAInforme(void *dato, FILE *pfInforme);
 
 #endif // JUGADORES_H_INCLUDED

@@ -4,12 +4,14 @@ void menu()
 {
     char opcion;
     int partidaJugada = 0;
-    tLista lista;
+    tLista listaJugadores;
+    tLista listaRanking;
     t_cola cola;
     Config config;
 
-    // Crear lista y cola
-    crearLista(&lista);
+    // Crear listaJugadores y cola
+    crearLista(&listaJugadores);
+    crearLista(&listaRanking); //Ranking para la API y para el informe local
     crearCola(&cola);
 
     // Leer configuración desde el archivo
@@ -42,19 +44,19 @@ void menu()
             printf("\nCargando jugadores y coordenadas...\n");
 
             // Cargar jugadores y coordenadas
-            cargarJugadores(&lista);
+            cargarJugadores(&listaJugadores);
 
             if(!partidaJugada){
                 cargarCoordenadas(&cola);
             }
 
             // Iniciar el juego con la cantidad de partidas de la configuración
-            iniciarJuego(&lista, &cola, config.cantidadPartidas);
+            iniciarJuego(&listaJugadores, &listaRanking, &cola, config.cantidadPartidas);
 
             partidaJugada = 1;
 
-            // Vaciar la lista después del juego para evitar datos colgados
-            vaciarLista(&lista);
+            // Vaciar la listaJugadores después del juego para evitar datos colgados
+            vaciarLista(&listaJugadores);
             break;
 
         case 'B':
@@ -77,34 +79,57 @@ void menu()
     while (opcion != 'C' && opcion != 'c');
 }
 
-void iniciarJuego(tLista *pl, t_cola *cCoordenadas, int maxPartidas)
+int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int maxPartidas)
 {
     int i;
-    tJugador *jugadorInicial = malloc(sizeof(tJugador));
+    int idJugadorInicial;
     tJugador *jugadorActual = malloc(sizeof(tJugador));
+
+    if(!jugadorActual){
+        printf("No se pudo iniciar el juego...");
+        return 0;
+    }
+
+    //Creación del archivo informe
+    FILE *pfInforme;
+
+    if(!crearInforme(&pfInforme)){
+        printf("No se pudieron crear los archivos del juego...");
+        return 0;
+    }
 
     // Sacar al primer jugador de la lista
     sacarInicioLista(pl, jugadorActual, sizeof(tJugador));
-    memcpy(jugadorInicial, jugadorActual, sizeof(tJugador));
+
+    idJugadorInicial = jugadorActual->idJugador;
 
     do
     {
         // Cada jugador juega la cantidad de partidas especificada
         for (i = 0; i < maxPartidas; i++)
         {
-            iniciarPartida(jugadorActual, cCoordenadas);
+            iniciarPartida(jugadorActual, cCoordenadas, pfInforme, i+1);
         }
+
+        fprintf(pfInforme, "Puntos totales: %d\n\n", jugadorActual->puntaje); //Esta bien usarlo asi? (!)
         // Reinsertar el jugador al final de la lista
         insertarAlFinal(pl, jugadorActual, sizeof(tJugador));
+        //Inseratamos ordenadamente al jugador en la lista del ranking:
+        insertarOrdenadamente(listaRanking, jugadorActual, sizeof(tJugador), 1, compararPuntos);
     }
     while (sacarInicioLista(pl, jugadorActual, sizeof(tJugador)) &&
-            (jugadorInicial->idJugador != jugadorActual->idJugador));
+            (idJugadorInicial != jugadorActual->idJugador));
+
+    fprintf(pfInforme, "Resultado final:\n");
+    mapearListaConArchivo(listaRanking, pfInforme, agregarRankingAInforme); // Leemos la lista y la cargamos en el archivo
 
     free(jugadorActual);
-    free(jugadorInicial);
+    fclose(pfInforme);
+
+    return 1;
 }
 
-int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
+int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInforme, unsigned nPartida)
 {
     srand(time(NULL));
 
@@ -153,6 +178,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
                     victoria = 1;
                     jugadorActual->puntaje += 3;
 
+                    agregarAInforme(pfInforme, jugadorActual, nPartida, 1);//Agregamos al informe los datos de esta partida
+
                     system("cls");
                     printf("\033[1;32m!Gana %s! +3 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->nombre, jugadorActual->puntaje);
                     mostrarTablero(tablero, 3, 3, turnoInicial);
@@ -184,6 +211,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
                             jugadorActual->puntaje -= 1;
                             victoria = 1;
 
+                            agregarAInforme(pfInforme, jugadorActual, nPartida, 2);
+
                             system("cls");
                             printf("\033[1;31m!Gana la IA! -1 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->puntaje);
                             mostrarTablero(tablero, 3, 3, turnoInicial);
@@ -202,6 +231,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas)
     if(!victoria)
     {
         jugadorActual->puntaje += 2;
+        agregarAInforme(pfInforme, jugadorActual, nPartida, 0);
         system("cls");
         printf("\033[1;33mSE PRODUJO UN EMPATE! +2 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->puntaje);
         mostrarTablero(tablero, 3, 3, turnoInicial);

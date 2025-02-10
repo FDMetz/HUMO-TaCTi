@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Jugadores.h"
 
 typedef struct {
     char url[256];
@@ -12,5 +13,6 @@ typedef struct {
 }Config;
 
 int leerConfig(const char *nombreArchivo, Config *config);
-
+void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nJugada, unsigned condicion);
+int crearInforme(FILE **pfInforme);
 #endif // ARCHIVOS_H_INCLUDED

@@ -25,15 +25,17 @@ typedef tNodo* tLista;
 typedef int(*funCmp)(const void*,const void*);
 typedef void(*funAct)(void*,const void*);
 typedef void(*funAccion)(void*);
+typedef void(*funAccionConArch)(void*, FILE*);
 
 void crearLista(tLista*);
 void vaciarLista(tLista*);
 int insertarOrdenado(tLista*,const void*,unsigned,funCmp,funAct actualizar,bool orden);
 bool buscarClave(tLista*,void*,funCmp);
 void mapearLista(tLista*,funAccion);
+void mapearListaConArchivo(tLista*, FILE*, funAccionConArch);
 
 int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam);
 int sacarInicioLista(tLista *iniLista, void *dato, unsigned tam);
-
+int insertarOrdenadamente(tLista *lista, const void *dato, unsigned tam, int dup, int cmp(const void*,const void*));
 
 #endif // TLISTA_H_INCLUDED
