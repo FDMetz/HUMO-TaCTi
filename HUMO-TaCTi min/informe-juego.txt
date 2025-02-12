@@ -1,0 +1,19 @@
+Partidas jugadas por Gonzalo:
+- Partida 1 | Condición: Perdió | Puntos: -1
+- Partida 2 | Condición: Ganó | Puntos: 3
+Puntos totales: 2
+
+Partidas jugadas por Maria:
+- Partida 1 | Condición: Perdió | Puntos: -1
+- Partida 2 | Condición: Perdió | Puntos: -1
+Puntos totales: -2
+
+Partidas jugadas por Lucas:
+- Partida 1 | Condición: Perdió | Puntos: -1
+- Partida 2 | Condición: Perdió | Puntos: -1
+Puntos totales: -2
+
+Resultado final:
+Jugador: Gonzalo | Puntos: 2
+Jugador: Lucas | Puntos: -2
+Jugador: Maria | Puntos: -2

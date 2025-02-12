@@ -89,6 +89,7 @@ void menu()
 int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int maxPartidas)
 {
     int i;
+    int puntos;
     int idJugadorInicial;
     tJugador *jugadorActual = malloc(sizeof(tJugador));
 
@@ -118,7 +119,8 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
         // Cada jugador juega la cantidad de partidas especificada
         for (i = 0; i < maxPartidas; i++)
         {
-            iniciarPartida(jugadorActual, cCoordenadas, pfInforme, i+1);
+            puntos = iniciarPartida(jugadorActual, cCoordenadas, pfInforme, i+1);
+            agregarAInforme(pfInforme, jugadorActual, i+1, puntos);//Agregamos al informe los datos de esta partida
         }
 
         fprintf(pfInforme, "Puntos totales: %d\n\n", jugadorActual->puntaje); //Esta bien usarlo asi? (!)
@@ -150,6 +152,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
     int victoria = 0;
     int turno = rand() % 2; // 0 -> Empieza el usuario || 1 -> Empieza la IA
     int turnoInicial = turno;
+    int puntos = 0;
 
 
     while(nJugada < 9 && !victoria)  //El máximo de movimientos es 9
@@ -187,8 +190,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
                 {
                     victoria = 1;
                     jugadorActual->puntaje += 3;
+                    puntos = 3;
 
-                    agregarAInforme(pfInforme, jugadorActual, nPartida, 1);//Agregamos al informe los datos de esta partida
 
                     system("cls");
                     printf("\033[1;32m!Gana %s! +3 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->nombre, jugadorActual->puntaje);
@@ -219,9 +222,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
                         if(comprobarVictoria(cCoordenadas, tablero, 2))
                         {
                             jugadorActual->puntaje -= 1;
+                            puntos = -1;
                             victoria = 1;
-
-                            agregarAInforme(pfInforme, jugadorActual, nPartida, 2);
 
                             system("cls");
                             printf("\033[1;31m!Gana la IA! -1 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->puntaje);
@@ -241,7 +243,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
     if(!victoria)
     {
         jugadorActual->puntaje += 2;
-        agregarAInforme(pfInforme, jugadorActual, nPartida, 0);
+        puntos = 2;
         system("cls");
         printf("\033[1;33mSE PRODUJO UN EMPATE! +2 PUNTOS --> PUNTAJE ACTUAL: %d\n\033[1;37m", jugadorActual->puntaje);
         mostrarTablero(tablero, 3, 3, turnoInicial);
@@ -249,7 +251,7 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
         getchar(); // Esperar una tecla para continuar
     }
 
-    return 0;
+    return puntos;
 }
 
 int comprobarVictoria(t_cola *cCoordenadas, int tablero[][3], int idJugador)
