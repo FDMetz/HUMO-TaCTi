@@ -18,4 +18,6 @@ Trabajo practico para la materia Algoritmos y estructuras de datos. Consiste en 
 6. Se le mostrara el tablero y la ficha asignada (X/O).
 7. Jugar.
 ## Configuranciones
-Se puede cambiar la cantidad de partidas jugadas por cada jugador, abrir el archivo **Configuracion** ubicado en la carpeta HUMO-TaCTi y cambiar el número de partidas.
+Se puede cambiar la cantidad de partidas jugadas por cada jugador, abrir el archivo **Configuracion** ubicado en la carpeta HUMO-TaCTi y cambiar el número de partidas.  
+
+![Archivo configuracion abierto en el bloc de notas](https://github.com/FDMetz/HUMO-TaCTi/blob/a58d6180fdfe260616f8a5e6bae72fb3958382a9/ScreenshotConfiguracion.png)
