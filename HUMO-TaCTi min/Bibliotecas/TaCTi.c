@@ -10,8 +10,8 @@ void menu()
     t_cola cola;
     Config config;
 
-    char nombre[] = "Bibliotecas/music/The Strokes - You Only Live Once.wav"; //Despues lo acomodo
-    PlaySound(nombre, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP); //SND_FILENAME indica que el primer argumento es una ruta.
+    ///char nombre[] = "Bibliotecas/music/The Strokes - You Only Live Once.wav"; //Despues lo acomodo
+    ///PlaySound(nombre, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP); //SND_FILENAME indica que el primer argumento es una ruta.
                                                                 //SND_ASYNC hace que no se detenga la ejecución del programa.
                                                                 //SND_LOOP hace que no se detenga la ejecución del programa.
     //PlaySound(NULL, 0, 0); -> para detener el sonido
@@ -98,8 +98,8 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
         return 0;
     }
 
-     char nombre[] = "Bibliotecas/music/A Horse With No Name - America.wav"; //Despues lo acomodo
-     PlaySound((LPCSTR)nombre, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+     ///char nombre[] = "Bibliotecas/music/A Horse With No Name - America.wav"; //Despues lo acomodo
+     ///PlaySound((LPCSTR)nombre, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
     //Creación del archivo informe
     FILE *pfInforme;
