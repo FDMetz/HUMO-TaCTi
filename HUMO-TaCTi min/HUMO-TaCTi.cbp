@@ -43,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Bibliotecas/TaCTi.h" />
+		<Unit filename="Bibliotecas/cJSON.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Bibliotecas/cJSON.h" />
 		<Unit filename="Bibliotecas/tCola.c">
 			<Option compilerVar="CC" />
 		</Unit>

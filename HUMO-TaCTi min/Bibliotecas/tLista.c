@@ -158,3 +158,61 @@ int insertarOrdenadamente(tLista *lista, const void *dato, unsigned tam, int dup
 
     return 1;
 }
+
+int listaPonerUlt(tLista* p, void* dato, unsigned tam)
+{
+    tNodo *nue = malloc(sizeof(tNodo));
+    if(!nue)
+        return 0;
+
+    nue->info = malloc(tam);
+    if(!nue->info)
+    {
+        free(nue);
+        return 0;
+    }
+
+    while(*p)
+        p = &(*p)->sig;
+
+    memcpy(nue->info, dato, tam);
+    nue->tamInfo = tam;
+    nue->sig = NULL;
+    *p = nue;
+    return 1;
+}
+
+int listaPonerOrd(tLista *p, void *d, unsigned tam, CMP cmp)
+{
+    tNodo *aux = *p;
+    tNodo *nue = malloc(sizeof(tNodo));
+    if (!nue)
+        return 0;
+
+    nue->info = malloc(tam);
+    if (!nue->info)
+    {
+        free(nue);
+        return 0;
+    }
+    memcpy(nue->info, d, tam);
+    nue->tamInfo = tam;
+    nue->sig = NULL;
+
+    if (*p == NULL || cmp(d, (*p)->info) > 0)
+    {
+        nue->sig = *p;
+        *p = nue;
+        return 1;
+    }
+
+    while (aux->sig && cmp(d, aux->sig->info) <= 0)
+    {
+        aux = aux->sig;
+    }
+
+    nue->sig = aux->sig;
+    aux->sig = nue;
+
+    return 1;
+}

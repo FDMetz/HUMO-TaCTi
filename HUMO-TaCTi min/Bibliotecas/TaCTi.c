@@ -7,6 +7,7 @@ void menu()
     int partidaJugada = 0;
     tLista listaJugadores;
     tLista listaRanking;
+    tLista listaRankingAPI;
     t_cola cola;
     Config config;
 
@@ -18,7 +19,8 @@ void menu()
 
     // Crear listaJugadores y cola
     crearLista(&listaJugadores);
-    crearLista(&listaRanking); //Ranking para la API y para el informe local
+    crearLista(&listaRanking); //Ranking para el informe local
+    crearLista(&listaRankingAPI); //Ranking para la API
     crearCola(&cola);
 
     // Leer configuración desde el archivo
@@ -29,12 +31,11 @@ void menu()
     }
 
     srand(time(NULL));
-    system("cls");
-
-    printf("\033[5;1;36m|<><><><><>|\033[5;1;35mBienvenidos a TaCTi\033[5;1;36m|<><><><><>|\n\033[0m");
 
     do
     {
+        system("cls");
+        printf("\033[5;1;36m|<><><><><>|\033[5;1;35m Bienvenidos a Ta-C-Ti \033[5;1;36m|<><><><><>|\n\033[0m");
         printf("[A] Jugar\n");
         printf("[B] Ver ranking equipo\n");
         printf("[C] Salir\n");
@@ -53,31 +54,41 @@ void menu()
             // Cargar jugadores y coordenadas
             cargarJugadores(&listaJugadores);
 
-            if(!partidaJugada){
+            if(!partidaJugada)
                 cargarCoordenadas(&cola);
-            }
 
             // Iniciar el juego con la cantidad de partidas de la configuración
             iniciarJuego(&listaJugadores, &listaRanking, &cola, config.cantidadPartidas);
-
             partidaJugada = 1;
+            guardarRanking(&listaRanking, config.url, config.codigoGrupo); //Guardar los jugadores en la API
 
             // Vaciar la listaJugadores después del juego para evitar datos colgados
             vaciarLista(&listaJugadores);
+            vaciarLista(&listaRanking);
             break;
 
         case 'B':
         case 'b':
-            printf("\nNope.\n");
+            system("cls");
+            printf("\033[5;1;36m|<><><><><>|\033[5;1;35m RANKING DE JUGADORES \033[5;1;36m|<><><><><>|\n\033[0m");
+            obtenerRanking(&listaRankingAPI, config.url, config.codigoGrupo); //Obtener los jugadores desde la API
+            //mapearLista(&listaRankingAPI, mostrarJug);
+            mostrarRanking(&listaRankingAPI);
+            vaciarLista(&listaRankingAPI);
+
+            printf("\nPresione cualquier tecla para continuar...\n");
+            getchar(); // Esperar una tecla para continuar
             break;
 
         case 'C':
         case 'c':
-            printf("\nSaliendo del programa. Hasta luego!\n");
+            system("cls");
+            printf("Saliendo del programa. Hasta luego!\n");
             break;
 
         default:
-            printf("\nOpción no válida. Intente nuevamente.\n");
+            system("cls");
+            printf("Opcion no valida. Intente nuevamente.\n");
             printf("\nPresione cualquier tecla para continuar...\n");
             getchar(); // Esperar una tecla para continuar
             break;

@@ -1,7 +1,0 @@
-Partidas jugadas por Maxi:
-- Partida 1 | Condición: Empató | Puntos: 2
-- Partida 2 | Condición: Perdió | Puntos: -1
-Puntos totales: 1
-
-Resultado final:
-Jugador: Maxi | Puntos: 1

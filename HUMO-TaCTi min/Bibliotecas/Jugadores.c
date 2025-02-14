@@ -6,6 +6,15 @@ int compId(const void*pIzq,const void*pDer)
 
     return j1->idJugador-j2->idJugador;
 }
+
+int compararJugadores(const void *a, const void *b)
+{
+    const tJugador *j1 = (const tJugador *)a;
+    const tJugador *j2 = (const tJugador *)b;
+
+    return j1->puntaje - j2->puntaje;
+}
+
 void resetearPuntajeImprimirNombre(void*p)
 {
     tJugador *j=(tJugador*)p;
@@ -67,7 +76,7 @@ void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida
     char condicionTxt[10];
 
     if(nPartida-1 == 0){ //Si es la primera partida jugada agregamos el encabezado
-        fprintf(pfInforme, "Partidas jugadas por %s:\n", jugadorActual->nombre);
+        fprintf(pfInforme, "--------- RESUMEN DE PARTIDAS JUGADAS POR %s ---------\n", jugadorActual->nombre);
     }
 
     switch(puntos){
@@ -82,12 +91,32 @@ void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida
         break;
     }
 
-    fprintf(pfInforme, "- Partida %d | Condición: %s | Puntos: %d\n", nPartida, condicionTxt, puntos);
+    fprintf(pfInforme, "- Partida %2d | Condición: %-7s | Puntos: %d\n", nPartida, condicionTxt, puntos);
 }
 
 
 void agregarRankingAInforme(void *dato, FILE *pfInforme){
     tJugador *jugador = (tJugador*)dato;
-    fprintf(pfInforme, "Jugador: %s | Puntos: %d\n", jugador->nombre, jugador->puntaje);
+    fprintf(pfInforme, "Jugador: %-21s | Puntos: %d\n", jugador->nombre, jugador->puntaje);
 }
 
+
+void mostrarJug(void* d)
+{
+    tJugador jug = *(tJugador*)d;
+
+    printf("JUGADOR: %s | PUNTAJE: %3d | ID: %d\n",jug.nombre,jug.puntaje, jug.idJugador);
+}
+
+void mostrarRanking(tLista *p)
+{
+    int i = 1;
+    tJugador jug;
+
+    while(*p)
+    {
+        sacarInicioLista(p, &jug, sizeof(tJugador));
+        printf("LUGAR NRO %d -> JUGADOR: %-21s | PUNTAJE: %3d | ID: %d\n", i, jug.nombre,jug.puntaje, jug.idJugador);
+        i++;
+    }
+}
