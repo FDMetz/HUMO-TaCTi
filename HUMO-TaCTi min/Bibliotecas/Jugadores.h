@@ -14,11 +14,17 @@ typedef struct
     int idJugador;
 }tJugador;
 
+typedef void (*accion)(void*);
+
 int compId(const void*,const void*);
+int compararJugadores(const void *a, const void *b);
 void resetearPuntajeImprimirNombre(void*);
 int cargarJugadores(tLista *pLista);
 int compararPuntos(const void *a, const void *b);
 void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida, unsigned condicion);
 void agregarRankingAInforme(void *dato, FILE *pfInforme);
+
+void mostrarJug(void* d);
+void mostrarRanking(tLista *p);
 
 #endif // JUGADORES_H_INCLUDED

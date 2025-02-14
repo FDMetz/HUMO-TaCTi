@@ -51,3 +51,89 @@
 	"TaCTi.h"
 	<mmsystem.h>
 
+1739551946 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\archivos.c
+	"Archivos.h"
+
+1739546530 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\archivos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<curl/curl.h>
+	"cJSON.h"
+	"Jugadores.h"
+
+1739551946 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
+	<stdio.h>
+	<ctype.h>
+	"tLista.h"
+
+1739551727 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tlista.h
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1739551365 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
+	"Jugadores.h"
+
+1739498250 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\parson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<limits.h>
+	<ctype.h>
+	<float.h>
+	<locale.h>
+	"Parson.h"
+
+1739498250 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\parson.h
+	<stddef.h>
+
+1739551591 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tacti.c
+	"TaCTi.h"
+	<mmsystem.h>
+
+1739506757 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tacti.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<ctype.h>
+	<windows.h>
+	<string.h>
+	<conio.h>
+	"tLista.h"
+	"tCola.h"
+	"Jugadores.h"
+	"Archivos.h"
+
+1739466503 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tcola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1738972664 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tcola.c
+	"tCola.h"
+
+1739551772 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tlista.c
+	"tLista.h"
+
+1739060332 source:d:\studies\github\humo-tacti\humo-tacti min\main.c
+	"Bibliotecas/TaCTi.h"
+
+1739503514 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\cjson.h
+	<stddef.h>
+
+1739503523 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<limits.h>
+	<ctype.h>
+	<float.h>
+	<locale.h>
+	"cJSON.h"
+

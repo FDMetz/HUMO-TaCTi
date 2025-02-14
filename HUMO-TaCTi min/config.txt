@@ -1,2 +1,2 @@
-https://api.com | HUMOR
-2
+https://algoritmos-api.azurewebsites.net/api/TaCTi | HUMOR
+1

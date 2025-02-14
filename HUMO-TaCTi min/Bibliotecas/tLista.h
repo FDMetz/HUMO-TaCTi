@@ -22,6 +22,7 @@ typedef struct sNodo
 }tNodo;
 typedef tNodo* tLista;
 
+typedef int(*CMP)(const void*, const void*);
 typedef int(*funCmp)(const void*,const void*);
 typedef void(*funAct)(void*,const void*);
 typedef void(*funAccion)(void*);
@@ -37,5 +38,8 @@ void mapearListaConArchivo(tLista*, FILE*, funAccionConArch);
 int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam);
 int sacarInicioLista(tLista *iniLista, void *dato, unsigned tam);
 int insertarOrdenadamente(tLista *lista, const void *dato, unsigned tam, int dup, int cmp(const void*,const void*));
+
+int listaPonerUlt(tLista* p, void* dato, unsigned tam);
+int listaPonerOrd(tLista *p, void *d, unsigned tam, CMP cmp);
 
 #endif // TLISTA_H_INCLUDED
