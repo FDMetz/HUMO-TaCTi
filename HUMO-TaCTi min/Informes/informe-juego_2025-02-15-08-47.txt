@@ -1,6 +1,0 @@
---------- RESUMEN DE PARTIDAS JUGADAS POR Alan ---------
-- Partida  1 | Condición: Empató  | Puntos: 2
-Puntos totales: 2
-
-Resultado final:
-Jugador: Alan                  | Puntos: 2

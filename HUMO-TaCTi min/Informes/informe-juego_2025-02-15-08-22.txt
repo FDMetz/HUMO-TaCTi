@@ -1,6 +1,0 @@
---------- RESUMEN DE PARTIDAS JUGADAS POR Alan ---------
-- Partida  1 | Condición: Perdió  | Puntos: -1
-Puntos totales: -1
-
-Resultado final:
-Jugador: Alan                  | Puntos: -1

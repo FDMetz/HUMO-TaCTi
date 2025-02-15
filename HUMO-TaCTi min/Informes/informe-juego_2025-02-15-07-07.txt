@@ -1,6 +1,0 @@
---------- RESUMEN DE PARTIDAS JUGADAS POR Gonzalo ---------
-- Partida  1 | Condición: Empató  | Puntos: 2
-Puntos totales: 2
-
-Resultado final:
-Jugador: Gonzalo               | Puntos: 2

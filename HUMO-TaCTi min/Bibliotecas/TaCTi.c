@@ -159,8 +159,8 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
     srand(time(NULL));
 
     int tablero[3][3] = {{0,0,0},{0,0,0},{0,0,0}};
-    int coordenadaX;
-    int coordenadaY;
+    int coordenadaX=-1;
+    int coordenadaY=-1;
     int nJugada = 0;
     int victoria = 0;
     int turno = rand() % 2; // 0 -> Empieza el usuario || 1 -> Empieza la IA
@@ -181,13 +181,13 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
                 do{
                     printf("Seleccione una coordenada \033[0;35mY\033[0m del tablero: ");
                     scanf("%d", &coordenadaY);
-                    getchar();
+                    while( getchar()!='\n');
                 }while(coordenadaY<0 || coordenadaY>2);
 
                 do{
                     printf("Seleccione una coordenada \033[1;34mX\033[0m del tablero: ");
                     scanf("%d", &coordenadaX);
-                    getchar();
+                    while( getchar()!='\n');
                 }while(coordenadaX<0 || coordenadaX>2);
 
                 printf("\n");
