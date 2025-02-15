@@ -24,6 +24,13 @@ int leerConfig(const char *nombreArchivo, Config *config)
         fclose(archivo);
         return 0;
     }
+    // Leer si se quiere acticar el sonido
+    if (fscanf(archivo, "%d", &config->estadoMusica) != 1)
+    {
+        printf("Error al leer la configuracion del sonido.\n");
+        fclose(archivo);
+        return 0;
+    }
 
     fclose(archivo);
     return 1;

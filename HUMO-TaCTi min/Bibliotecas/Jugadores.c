@@ -24,21 +24,50 @@ void resetearPuntajeImprimirNombre(void*p)
     printf("- %s\n",j->nombre);
 }
 
+int validarCaracteres(char *cad){
+    while(*cad){
+        if(!(ESLETRA(*cad)) && !(ESNUMERO(*cad))){
+            return 0;
+        }else{
+            cad++;
+        }
+    }
+
+    return 1;
+}
+
 int cargarJugadores(tLista *pLista)
 {
     tJugador juga;
-    char *pAux,opc;
+    char *pAux, opc;
+    int flag = 0;
     size_t tamReg=sizeof(tJugador);
-
+    char nomAux[200]; //Por si le usuario se excede, validamos que la longitud no sea >= 21 antes de pasarlo a la estructura
 
     do
     {
-        system("cls");
-        printf("Ingrese Nombre del Jugador: ");
-        fgets(juga.nombre,TAM_NOM,stdin);
-        pAux=strchr(juga.nombre,'\n');
-        if(*pAux)
-            *pAux='\0';
+
+        do{
+            system("cls");
+
+            (!flag) ? printf("Ingrese un nombre de jugador: ") : printf("Ingrese un nombre correcto: ");
+
+            fgets(nomAux, 200, stdin);
+            pAux = strchr(nomAux, '\n');
+
+            if(*pAux){
+                *pAux='\0';
+            }
+
+            flag = 1;
+
+
+        }while(strlen(nomAux)<=3 || strlen(nomAux)>=21 || !validarCaracteres(nomAux));
+
+        strcpy(juga.nombre, nomAux);
+
+        reproducirSonido("op1", 0);
+
         do
         {
             juga.idJugador = rand()%100;
@@ -51,11 +80,15 @@ int cargarJugadores(tLista *pLista)
             return TE_FALTA_MEMORIA;
         }
 
+        flag = 0;
+
         printf("\nIngresar Mas Jugadores? (s/n): ");
         opc=getchar();
         while(getchar()!='\n' );
     }
     while(A_MINUSCULA(opc)=='s');
+
+    reproducirSonido("op1", 0);
 
     system("cls");
     printf("Orden de los Jugadores:\n");
@@ -116,7 +149,12 @@ void mostrarRanking(tLista *p)
     while(*p)
     {
         sacarInicioLista(p, &jug, sizeof(tJugador));
-        printf("LUGAR NRO %d -> JUGADOR: %-21s | PUNTAJE: %3d | ID: %d\n", i, jug.nombre,jug.puntaje, jug.idJugador);
+        if(i==1){
+            printf("\033[1;32m#%d\033[0m \033[1;32m%-21s\033[0m | PUNTAJE: \033[1;32m%3d\033[0m | ID: %d\n\033[0m", i, jug.nombre,jug.puntaje, jug.idJugador);
+        }else{
+            printf("#%d %-21s | PUNTAJE: %3d | ID: %d\n", i, jug.nombre,jug.puntaje, jug.idJugador);
+        }
+
         i++;
     }
 }

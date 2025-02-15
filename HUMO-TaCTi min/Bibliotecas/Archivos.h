@@ -14,6 +14,7 @@ typedef struct
     char url[256];
     char codigoGrupo[10];
     int cantidadPartidas;
+    int estadoMusica;
 }Config;
 
 struct string

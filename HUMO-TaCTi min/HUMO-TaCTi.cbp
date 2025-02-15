@@ -39,14 +39,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Bibliotecas/Jugadores.h" />
+		<Unit filename="Bibliotecas/Parson.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Bibliotecas/Parson.h" />
 		<Unit filename="Bibliotecas/TaCTi.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Bibliotecas/TaCTi.h" />
-		<Unit filename="Bibliotecas/cJSON.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Bibliotecas/cJSON.h" />
 		<Unit filename="Bibliotecas/tCola.c">
 			<Option compilerVar="CC" />
 		</Unit>

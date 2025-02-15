@@ -1,60 +1,8 @@
 # depslib dependency file v1.0
-1739391253 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.c
+1739624353 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.c
 	"Archivos.h"
 
-1739391253 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.h
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"Jugadores.h"
-
-1739394554 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
-	"Jugadores.h"
-
-1739391253 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
-	<stdio.h>
-	<ctype.h>
-	"tLista.h"
-
-1739391253 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.h
-	<stdbool.h>
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-
-1738985932 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tcola.c
-	"tCola.h"
-
-1739391253 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tcola.h
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-
-1739391253 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.c
-	"tLista.h"
-
-1739066303 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\main.c
-	"Bibliotecas/TaCTi.h"
-
-1739391253 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.h
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	<windows.h>
-	"tLista.h"
-	"tCola.h"
-	"Jugadores.h"
-	"Archivos.h"
-
-1739395463 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
-	"TaCTi.h"
-	<mmsystem.h>
-
-1739551946 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\archivos.c
-	"Archivos.h"
-
-1739546530 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\archivos.h
+1739624366 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\archivos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -63,39 +11,38 @@
 	"cJSON.h"
 	"Jugadores.h"
 
-1739551946 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
+1739626017 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
+	"Jugadores.h"
+
+1739623394 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\jugadores.h
 	<stdio.h>
 	<ctype.h>
+	<windows.h>
+	<string.h>
 	"tLista.h"
+	"./music/reproductor.h"
 
-1739551727 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tlista.h
+1739615476 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.h
 	<stdbool.h>
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1739551365 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\jugadores.c
-	"Jugadores.h"
+1738985932 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tcola.c
+	"tCola.h"
 
-1739498250 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\parson.c
-	<string.h>
+1739615512 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tcola.h
 	<stdio.h>
-	<math.h>
 	<stdlib.h>
-	<limits.h>
-	<ctype.h>
-	<float.h>
-	<locale.h>
-	"Parson.h"
+	<string.h>
 
-1739498250 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\parson.h
-	<stddef.h>
+1739576150 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tlista.c
+	"tLista.h"
 
-1739551591 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tacti.c
-	"TaCTi.h"
-	<mmsystem.h>
+1739066303 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\main.c
+	"Bibliotecas/TaCTi.h"
 
-1739506757 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tacti.h
+1739623398 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.h
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -108,25 +55,12 @@
 	"tCola.h"
 	"Jugadores.h"
 	"Archivos.h"
+	"./music/reproductor.h"
 
-1739466503 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tcola.h
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1739625896 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\tacti.c
+	"TaCTi.h"
 
-1738972664 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tcola.c
-	"tCola.h"
-
-1739551772 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\tlista.c
-	"tLista.h"
-
-1739060332 source:d:\studies\github\humo-tacti\humo-tacti min\main.c
-	"Bibliotecas/TaCTi.h"
-
-1739503514 d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\cjson.h
-	<stddef.h>
-
-1739503523 source:d:\studies\github\humo-tacti\humo-tacti min\bibliotecas\cjson.c
+1739576150 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\cjson.c
 	<string.h>
 	<stdio.h>
 	<math.h>
@@ -136,4 +70,29 @@
 	<float.h>
 	<locale.h>
 	"cJSON.h"
+
+1739576150 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\cjson.h
+	<stddef.h>
+
+1739576150 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\parson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<limits.h>
+	<ctype.h>
+	<float.h>
+	<locale.h>
+	"Parson.h"
+
+1739576150 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\parson.h
+	<stddef.h>
+
+1739623955 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\music\reproductor.c
+	"reproductor.h"
+
+1739624184 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\humo-tacti min\bibliotecas\music\reproductor.h
+	<windows.h>
+	<mmsystem.h>
+	<string.h>
 

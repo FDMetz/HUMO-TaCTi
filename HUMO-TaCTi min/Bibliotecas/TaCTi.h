@@ -10,10 +10,13 @@
 #include <string.h>
 #include <conio.h>
 
+
 #include "tLista.h"
 #include "tCola.h"
 #include "Jugadores.h"
 #include "Archivos.h"
+#include "./music/reproductor.h"
+
 
 typedef struct
 {

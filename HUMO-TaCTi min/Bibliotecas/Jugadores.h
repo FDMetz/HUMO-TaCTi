@@ -3,9 +3,17 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <windows.h>
+#include <string.h>
+
 #include "tLista.h"
+#include "./music/reproductor.h"
+
 #define TAM_NOM 21
 #define A_MINUSCULA(A) (A>=65 && A<=90?A+32:A)
+
+#define ESLETRA(x) ('a' <= (x) && (x) <= 'z') || ('A' <= (x) && (x) <= 'Z') ? 1 : 0
+#define ESNUMERO(x) ('0' <= (x) && (x) <= '9') ? 1 : 0
 
 typedef struct
 {

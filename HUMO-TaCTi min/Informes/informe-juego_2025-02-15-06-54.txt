@@ -1,0 +1,11 @@
+--------- RESUMEN DE PARTIDAS JUGADAS POR Mario ---------
+- Partida  1 | Condición: Perdió  | Puntos: -1
+Puntos totales: -1
+
+--------- RESUMEN DE PARTIDAS JUGADAS POR Pedro ---------
+- Partida  1 | Condición: Perdió  | Puntos: -1
+Puntos totales: -1
+
+Resultado final:
+Jugador: Pedro                 | Puntos: -1
+Jugador: Mario                 | Puntos: -1

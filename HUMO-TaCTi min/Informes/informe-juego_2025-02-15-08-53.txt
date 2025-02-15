@@ -1,0 +1,16 @@
+--------- RESUMEN DE PARTIDAS JUGADAS POR Matias ---------
+- Partida  1 | Condición: Perdió  | Puntos: -1
+Puntos totales: -1
+
+--------- RESUMEN DE PARTIDAS JUGADAS POR Lucas ---------
+- Partida  1 | Condición: Ganó    | Puntos: 3
+Puntos totales: 3
+
+--------- RESUMEN DE PARTIDAS JUGADAS POR Gonzalo ---------
+- Partida  1 | Condición: Perdió  | Puntos: -1
+Puntos totales: -1
+
+Resultado final:
+Jugador: Lucas                 | Puntos: 3
+Jugador: Gonzalo               | Puntos: -1
+Jugador: Matias                | Puntos: -1

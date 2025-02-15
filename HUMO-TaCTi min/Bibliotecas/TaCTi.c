@@ -1,5 +1,4 @@
 #include "TaCTi.h"
-#include <mmsystem.h> //Libreria para el audio
 
 void menu()
 {
@@ -10,12 +9,6 @@ void menu()
     tLista listaRankingAPI;
     t_cola cola;
     Config config;
-
-    ///char nombre[] = "Bibliotecas/music/The Strokes - You Only Live Once.wav"; //Despues lo acomodo
-    ///PlaySound(nombre, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP); //SND_FILENAME indica que el primer argumento es una ruta.
-                                                                //SND_ASYNC hace que no se detenga la ejecución del programa.
-                                                                //SND_LOOP hace que no se detenga la ejecución del programa.
-    //PlaySound(NULL, 0, 0); -> para detener el sonido
 
     // Crear listaJugadores y cola
     crearLista(&listaJugadores);
@@ -34,8 +27,13 @@ void menu()
 
     do
     {
+        if(config.estadoMusica){
+            reproducirSonido("song1", 1);
+        }
+
+
         system("cls");
-        printf("\033[5;1;36m|<><><><><>|\033[5;1;35m Bienvenidos a Ta-C-Ti \033[5;1;36m|<><><><><>|\n\033[0m");
+        printf("\033[5;1;36m|<><><><><>|\033[5;1;35m Bienvenidos a Ta-C-Ti \033[5;1;36m|<><><><><>|\n\033[0m\n");
         printf("[A] Jugar\n");
         printf("[B] Ver ranking equipo\n");
         printf("[C] Salir\n");
@@ -49,6 +47,7 @@ void menu()
         {
         case 'A':
         case 'a':
+            reproducirSonido("op3", 0);
             printf("\nCargando jugadores y coordenadas...\n");
 
             // Cargar jugadores y coordenadas
@@ -58,6 +57,11 @@ void menu()
                 cargarCoordenadas(&cola);
 
             // Iniciar el juego con la cantidad de partidas de la configuración
+
+            if(config.estadoMusica){
+                reproducirSonido("song2", 1);
+            }
+
             iniciarJuego(&listaJugadores, &listaRanking, &cola, config.cantidadPartidas);
             partidaJugada = 1;
             guardarRanking(&listaRanking, config.url, config.codigoGrupo); //Guardar los jugadores en la API
@@ -69,13 +73,14 @@ void menu()
 
         case 'B':
         case 'b':
+            mutearSonido();
             system("cls");
-            printf("\033[5;1;36m|<><><><><>|\033[5;1;35m RANKING DE JUGADORES \033[5;1;36m|<><><><><>|\n\033[0m");
+            printf("\033[0;33m|[][][][][]|\033[1;33m RANKING DE JUGADORES \033[0;33m|[][][][][]|\n\033[0m\n");
             obtenerRanking(&listaRankingAPI, config.url, config.codigoGrupo); //Obtener los jugadores desde la API
             //mapearLista(&listaRankingAPI, mostrarJug);
             mostrarRanking(&listaRankingAPI);
+            reproducirSonido("op2", 0);
             vaciarLista(&listaRankingAPI);
-
             printf("\nPresione cualquier tecla para continuar...\n");
             getchar(); // Esperar una tecla para continuar
             break;
@@ -83,7 +88,7 @@ void menu()
         case 'C':
         case 'c':
             system("cls");
-            printf("Saliendo del programa. Hasta luego!\n");
+            printf("!Gracias por jugar!\nEsto fue una creacion del grupo HUMO - UNLaM ©\n");
             break;
 
         default:
@@ -108,9 +113,6 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
         printf("No se pudo iniciar el juego...");
         return 0;
     }
-
-     ///char nombre[] = "Bibliotecas/music/A Horse With No Name - America.wav"; //Despues lo acomodo
-     ///PlaySound((LPCSTR)nombre, NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
     //Creación del archivo informe
     FILE *pfInforme;
@@ -180,13 +182,13 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
                     printf("Seleccione una coordenada \033[0;35mY\033[0m del tablero: ");
                     scanf("%d", &coordenadaY);
                     getchar();
-                }while(coordenadaY!=0 && coordenadaY!=1 && coordenadaY !=2);
+                }while(coordenadaY<0 || coordenadaY>2);
 
                 do{
                     printf("Seleccione una coordenada \033[1;34mX\033[0m del tablero: ");
                     scanf("%d", &coordenadaX);
                     getchar();
-                }while(coordenadaX!=0 && coordenadaX!=1 && coordenadaX !=2);
+                }while(coordenadaX<0 || coordenadaX>2);
 
                 printf("\n");
             }
