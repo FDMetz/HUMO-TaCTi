@@ -41,7 +41,7 @@ void menu()
         printf("Seleccione una opcion: ");
         scanf("%c", &opcion);
 
-        getchar();
+        while(getchar()!='\n');
 
         switch (opcion)
         {
