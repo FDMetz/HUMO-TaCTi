@@ -50,7 +50,12 @@ int cargarJugadores(tLista *pLista)
         do{
             system("cls");
 
-            (!flag) ? printf("Ingrese un nombre de jugador: ") : printf("Ingrese un nombre correcto: ");
+            if(!flag){
+                printf("Ingrese un nombre de jugador: ");
+            }else{
+                printf("Ingrese un nombre correcto: ");
+                reproducirSonido("error", 1);
+            }
 
             fgets(nomAux, 200, stdin);
             pAux = strchr(nomAux, '\n');
@@ -88,7 +93,7 @@ int cargarJugadores(tLista *pLista)
     }
     while(A_MINUSCULA(opc)=='s');
 
-    reproducirSonido("op1", 0);
+    reproducirSonido("op4", 0);
 
     system("cls");
     printf("Orden de los Jugadores:\n");
