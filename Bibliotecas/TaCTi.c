@@ -90,7 +90,7 @@ void menu()
         case 'C':
         case 'c':
             system("cls");
-            printf("!Gracias por jugar!\nEsto fue una creacion del grupo HUMO - UNLaM ©\n");
+            printf("!Gracias por jugar!\nEsto fue una creacion del grupo HUMOR - UNLaM ©\n");
             break;
 
         default:
@@ -109,7 +109,8 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
     int i;
     int puntos;
     int idJugadorInicial;
-    tJugador *jugadorActual = malloc(sizeof(tJugador));
+    unsigned tamJugador = sizeof(tJugador);
+    tJugador *jugadorActual = malloc(tamJugador);
 
     if(!jugadorActual)
     {
@@ -127,7 +128,7 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
     }
 
     // Sacar al primer jugador de la lista
-    sacarInicioLista(pl, jugadorActual, sizeof(tJugador));
+    sacarInicioLista(pl, jugadorActual, tamJugador);
 
     idJugadorInicial = jugadorActual->idJugador;
 
@@ -142,11 +143,11 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
 
         fprintf(pfInforme, "Puntos totales: %d\n\n", jugadorActual->puntaje); //Esta bien usarlo asi? (!)
         // Reinsertar el jugador al final de la lista
-        insertarAlFinal(pl, jugadorActual, sizeof(tJugador));
+        insertarAlFinal(pl, jugadorActual, tamJugador);
         //Inseratamos ordenadamente al jugador en la lista del ranking:
-        insertarOrdenadamente(listaRanking, jugadorActual, sizeof(tJugador), 1, compararPuntos);
+        insertarOrdenadamente(listaRanking, jugadorActual, tamJugador, 1, compararPuntos);
     }
-    while (sacarInicioLista(pl, jugadorActual, sizeof(tJugador)) &&
+    while (sacarInicioLista(pl, jugadorActual, tamJugador) &&
             (idJugadorInicial != jugadorActual->idJugador));
 
     fprintf(pfInforme, "Resultado final:\n");
@@ -281,13 +282,14 @@ int comprobarVictoria(t_cola *cCoordenadas, int tablero[][3], int idJugador)
     int victoria = 0;
     int i = 0;
     int x1, y1, x2, y2, x3, y3; //Representan las posiciones de la matriz
+    unsigned tamCoords = sizeof(t_coords);
 
-    t_coords *coords = malloc(sizeof(t_coords));
+    t_coords *coords = malloc(tamCoords);
 
     while(i<9 && !victoria)  //9 es la maxima cantidad de lineas posibles.
     {
-        quitarDeCola(cCoordenadas, coords, sizeof(t_coords)); //Recuperamos las coordenadas
-        agregarCola(cCoordenadas, coords, sizeof(t_coords));  //Las volvemos a agregar para no perderlas
+        quitarDeCola(cCoordenadas, coords, tamCoords); //Recuperamos las coordenadas
+        agregarCola(cCoordenadas, coords, tamCoords);  //Las volvemos a agregar para no perderlas
 
         y1 = (coords->coord1)[0];
         x1 = (coords->coord1)[1];
@@ -322,8 +324,9 @@ int buscarJugadaIA(t_cola *cCoordenadas, int tablero[][3])
     unsigned tamVec = 6;
     int vCoords[tamVec];
     int vCoordsBloqueo[tamVec];
+    unsigned tamCoords = sizeof(t_coords);
 
-    t_coords *coords = (t_coords*)malloc(sizeof(t_coords));
+    t_coords *coords = (t_coords*)malloc(tamCoords);
 
     if(!coords)
     {
@@ -334,8 +337,8 @@ int buscarJugadaIA(t_cola *cCoordenadas, int tablero[][3])
     {
         //Coordenadas de una linea, ej: {0,0}   {1,0}   {2,0} -> columna1
         //{y1,x1} {y2,x2} {y3,x3}
-        quitarDeCola(cCoordenadas, coords, sizeof(t_coords)); //Recuperamos las coordenadas de la cCoordenadas
-        agregarCola(cCoordenadas, coords, sizeof(t_coords));  //Las volvemos a agregar al final para no perderlas
+        quitarDeCola(cCoordenadas, coords, tamCoords); //Recuperamos las coordenadas de la cCoordenadas
+        agregarCola(cCoordenadas, coords, tamCoords);  //Las volvemos a agregar al final para no perderlas
 
         vCoords[0] = (coords->coord1)[0];
         vCoords[1] = (coords->coord1)[1];
@@ -398,6 +401,8 @@ void realizarJugadaIA(int *vCoords, unsigned tamVec, int tablero[][3])
 int cargarCoordenadas(t_cola *cCoordenadas)
 {
 
+    unsigned tamCoords = sizeof(t_coords);
+
     FILE *pf;
 
     pf = fopen("Bibliotecas/coordenadas.dat", "rb");
@@ -407,14 +412,14 @@ int cargarCoordenadas(t_cola *cCoordenadas)
         return 0;
     }
 
-    t_coords *coord = malloc(sizeof(t_coords));
+    t_coords *coord = malloc(tamCoords);
 
-    fread(coord, sizeof(t_coords), 1, pf);
+    fread(coord, tamCoords, 1, pf);
 
     while(!feof(pf))
     {
-        agregarCola(cCoordenadas, coord, sizeof(t_coords));
-        fread(coord, sizeof(t_coords), 1, pf);
+        agregarCola(cCoordenadas, coord, tamCoords);
+        fread(coord, tamCoords, 1, pf);
     }
 
     fclose(pf);

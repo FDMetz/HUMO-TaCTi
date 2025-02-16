@@ -17,7 +17,6 @@
 #include "Archivos.h"
 #include "./music/reproductor.h"
 
-
 typedef struct
 {
     int coord1[2];

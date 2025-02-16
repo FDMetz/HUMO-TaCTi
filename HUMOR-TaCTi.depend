@@ -182,3 +182,89 @@
 1739657485 source:c:\users\administrador\documents\github\humo-tacti\humo-tacti min\main.c
 	"Bibliotecas/TaCTi.h"
 
+1739669655 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\archivos.c
+	"Archivos.h"
+
+1739669655 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\archivos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<curl/curl.h>
+	"cJSON.h"
+	"Jugadores.h"
+
+1739669655 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\cjson.h
+	<stddef.h>
+
+1739669655 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\jugadores.h
+	<stdio.h>
+	<ctype.h>
+	<windows.h>
+	<string.h>
+	"tLista.h"
+	"./music/reproductor.h"
+
+1739669655 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\tlista.h
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1739669655 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\music\reproductor.h
+	<windows.h>
+	<mmsystem.h>
+	<string.h>
+
+1739669655 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\jugadores.c
+	"Jugadores.h"
+
+1739669655 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\music\reproductor.c
+	"reproductor.h"
+
+1739669655 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\parson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<limits.h>
+	<ctype.h>
+	<float.h>
+	<locale.h>
+	"Parson.h"
+
+1739669655 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\parson.h
+	<stddef.h>
+
+1739672653 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\tacti.c
+	"TaCTi.h"
+
+1739672631 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\tacti.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<ctype.h>
+	<windows.h>
+	<string.h>
+	<conio.h>
+	"tLista.h"
+	"tCola.h"
+	"Jugadores.h"
+	"Archivos.h"
+	"./music/reproductor.h"
+
+1739669655 e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\tcola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1739669655 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\tcola.c
+	"tCola.h"
+
+1739669655 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\bibliotecas\tlista.c
+	"tLista.h"
+
+1739669656 source:e:\escritorio alterno\algoritmos y estructuras de datos\humo-tacti\main.c
+	"Bibliotecas/TaCTi.h"
+
