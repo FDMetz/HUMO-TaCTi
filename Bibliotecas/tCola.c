@@ -1,21 +1,24 @@
-#include "PrimitivasCola.h"
-#define MINIMO(x, y) sizeof(x)<sizeof(y) ? x : y
+#include "tCola.h"
 
-void crearCola(t_cola *cola){
+void crearCola(t_cola *cola)
+{
     cola->fin = NULL;
     cola->inicio = NULL;
 }
 
-int agregarCola(t_cola *cola, const void *dato, unsigned tam){
-    t_nodo *nuevoNodo = malloc(sizeof(t_nodo));
+int agregarCola(t_cola *cola, const void *dato, unsigned tam)
+{
+    tc_nodo *nuevoNodo = malloc(sizeof(tc_nodo));
 
-    if(NULL == nuevoNodo){
+    if(NULL == nuevoNodo)
+    {
         return 0;
     }
 
     nuevoNodo->dato = malloc(tam);
 
-    if(NULL == nuevoNodo->dato){
+    if(NULL == nuevoNodo->dato)
+    {
         free(nuevoNodo);
         return 0;
     }
@@ -24,9 +27,12 @@ int agregarCola(t_cola *cola, const void *dato, unsigned tam){
     nuevoNodo->tam = tam;
     nuevoNodo->s_nodo = NULL;
 
-    if(cola->inicio != NULL){
+    if(cola->inicio != NULL)
+    {
         (cola->fin)->s_nodo = nuevoNodo;
-    }else{
+    }
+    else
+    {
         cola->inicio = nuevoNodo;
     }
 
@@ -35,8 +41,10 @@ int agregarCola(t_cola *cola, const void *dato, unsigned tam){
     return 1;
 }
 
-int verInicio(t_cola *cola, void *dato, unsigned tam){
-    if(NULL == cola->inicio){
+int verInicio(t_cola *cola, void *dato, unsigned tam)
+{
+    if(NULL == cola->inicio)
+    {
         return 0;
     }
 
@@ -45,11 +53,13 @@ int verInicio(t_cola *cola, void *dato, unsigned tam){
     return 1;
 }
 
-int quitarDeCola(t_cola *cola, void *dato, unsigned tam){
+int quitarDeCola(t_cola *cola, void *dato, unsigned tam)
+{
 
-    t_nodo *aux;
+    tc_nodo *aux;
 
-    if(NULL == cola->inicio){
+    if(NULL == cola->inicio)
+    {
         return 0;
     }
 
@@ -66,19 +76,23 @@ int quitarDeCola(t_cola *cola, void *dato, unsigned tam){
     return 1;
 }
 
-int colaLlena(unsigned tam){
+int colaLlena(unsigned tam)
+{
     return 1;
 }
 
-int colaVacia(t_cola *cola){
+int colaVacia(t_cola *cola)
+{
     return cola->inicio == NULL;
 }
 
-void vaciarCola(t_cola *cola){
+void vaciarCola(t_cola *cola)
+{
 
-    t_nodo *aux;
+    tc_nodo *aux;
 
-    while(cola->inicio != NULL){
+    while(cola->inicio != NULL)
+    {
         aux = cola->inicio;
         cola->inicio = cola->inicio->s_nodo;
 

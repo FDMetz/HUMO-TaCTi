@@ -49,17 +49,20 @@ int insertarOrdenado(tLista* pl,const void* info,unsigned tamInfo,funCmp compara
     return SALIO_BIEN;
 }
 
-int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam){
+int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam)
+{
 
     tNodo *nuevoNodo = malloc(sizeof(tNodo));
 
-    if(!nuevoNodo){
+    if(!nuevoNodo)
+    {
         return 0;
     }
 
     nuevoNodo->info = malloc(tam);
 
-    if(nuevoNodo->info == NULL){
+    if(nuevoNodo->info == NULL)
+    {
         free(nuevoNodo);
         return 0;
     }
@@ -68,8 +71,9 @@ int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam){
     nuevoNodo->tamInfo = tam;
     nuevoNodo->sig = NULL;
 
-    while(*iniLista != NULL){ //Recorremos toda la lista hasta encontrar el nodo
-                              //que apunte a nulo.
+    while(*iniLista != NULL)  //Recorremos toda la lista hasta encontrar el nodo
+    {
+        //que apunte a nulo.
         iniLista = &((*iniLista)->sig);
     }
 
@@ -78,10 +82,12 @@ int insertarAlFinal(tLista *iniLista, const void *dato, unsigned tam){
     return 1;
 }
 
-int sacarInicioLista(tLista *iniLista, void *dato, unsigned tam){
+int sacarInicioLista(tLista *iniLista, void *dato, unsigned tam)
+{
     tNodo *aux;
 
-    if(*iniLista==NULL){
+    if(*iniLista==NULL)
+    {
         return 0;
     }
 
@@ -125,27 +131,32 @@ void mapearListaConArchivo(tLista*pLista, FILE *arch, funAccionConArch accion)
     }
 }
 
-int insertarOrdenadamente(tLista *lista, const void *dato, unsigned tam, int dup, int cmp(const void*,const void*)){
+int insertarOrdenadamente(tLista *lista, const void *dato, unsigned tam, int dup, int cmp(const void*,const void*))
+{
 
     int res;
 
-    while(*lista != NULL && (res = cmp((*lista)->info, dato))>0){
+    while(*lista != NULL && (res = cmp((*lista)->info, dato))>0)
+    {
         lista = &(*lista)->sig;
     }
 
-    if(res==0 && !dup){
+    if(res==0 && !dup)
+    {
         return 2;
     }
 
     tNodo *nuevoNodo = malloc(sizeof(tNodo));
 
-    if(!nuevoNodo){
+    if(!nuevoNodo)
+    {
         return 0;
     }
 
     nuevoNodo->info = malloc(tam);
 
-    if(nuevoNodo->info == NULL){
+    if(nuevoNodo->info == NULL)
+    {
         free(nuevoNodo);
         return 0;
     }

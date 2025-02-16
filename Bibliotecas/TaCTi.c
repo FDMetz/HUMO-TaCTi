@@ -27,7 +27,8 @@ void menu()
 
     do
     {
-        if(config.estadoMusica){
+        if(config.estadoMusica)
+        {
             reproducirSonido("song1", 1);
         }
 
@@ -58,7 +59,8 @@ void menu()
 
             // Iniciar el juego con la cantidad de partidas de la configuración
 
-            if(config.estadoMusica){
+            if(config.estadoMusica)
+            {
                 reproducirSonido("song2", 1);
             }
 
@@ -109,7 +111,8 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
     int idJugadorInicial;
     tJugador *jugadorActual = malloc(sizeof(tJugador));
 
-    if(!jugadorActual){
+    if(!jugadorActual)
+    {
         printf("No se pudo iniciar el juego...");
         return 0;
     }
@@ -117,7 +120,8 @@ int iniciarJuego(tLista *pl, tLista *listaRanking, t_cola *cCoordenadas, int max
     //Creación del archivo informe
     FILE *pfInforme;
 
-    if(!crearInforme(&pfInforme)){
+    if(!crearInforme(&pfInforme))
+    {
         printf("No se pudieron crear los archivos del juego...");
         return 0;
     }
@@ -178,17 +182,21 @@ int iniciarPartida(tJugador *jugadorActual, t_cola *cCoordenadas, FILE *pfInform
             printf("\nJuega con el simbolo: %c\n", devolverCaracter(1, turnoInicial));
             do
             {
-                do{
+                do
+                {
                     printf("Seleccione una coordenada \033[0;35mY\033[0m del tablero: ");
                     scanf("%d", &coordenadaY);
                     while( getchar()!='\n');
-                }while(coordenadaY<0 || coordenadaY>2);
+                }
+                while(coordenadaY<0 || coordenadaY>2);
 
-                do{
+                do
+                {
                     printf("Seleccione una coordenada \033[1;34mX\033[0m del tablero: ");
                     scanf("%d", &coordenadaX);
                     while( getchar()!='\n');
-                }while(coordenadaX<0 || coordenadaX>2);
+                }
+                while(coordenadaX<0 || coordenadaX>2);
 
                 printf("\n");
             }
@@ -452,9 +460,12 @@ void mostrarTablero(int tablero[][3], int fil, int col, int turnoInicial)
         }
 
         printf("\n");
-        if(i<fil-1){
+        if(i<fil-1)
+        {
             printf("             ------+-----+------\n"); // Línea entre filas
-        }else{
+        }
+        else
+        {
             printf("             -------------------\n");
         }
 

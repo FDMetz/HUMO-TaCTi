@@ -15,7 +15,7 @@ typedef struct
     char codigoGrupo[10];
     int cantidadPartidas;
     int estadoMusica;
-}Config;
+} Config;
 
 struct string
 {

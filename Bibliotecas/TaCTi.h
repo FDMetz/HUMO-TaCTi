@@ -23,7 +23,7 @@ typedef struct
     int coord1[2];
     int coord2[2];
     int coord3[2];
-}t_coords;
+} t_coords;
 
 void menu();
 int iniciarPartida(tJugador *jugadorActual, t_cola *cola, FILE *pfInforme, unsigned nPartida);

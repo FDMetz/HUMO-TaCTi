@@ -20,7 +20,7 @@ typedef struct
     char nombre[TAM_NOM];
     int puntaje;
     int idJugador;
-}tJugador;
+} tJugador;
 
 typedef void (*accion)(void*);
 

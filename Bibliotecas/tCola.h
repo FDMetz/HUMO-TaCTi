@@ -11,12 +11,13 @@ typedef struct snodo
     void *dato;
     unsigned tam;
     struct snodo *s_nodo;
-}tc_nodo;
+} tc_nodo;
 
-typedef struct{
+typedef struct
+{
     tc_nodo *inicio;
     tc_nodo *fin;
-}t_cola;
+} t_cola;
 
 //1)Crear cola:
 void crearCola(t_cola *cola);

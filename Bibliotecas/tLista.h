@@ -19,7 +19,7 @@ typedef struct sNodo
     void *info;
     size_t tamInfo;
     struct sNodo *sig;
-}tNodo;
+} tNodo;
 typedef tNodo* tLista;
 
 typedef int(*CMP)(const void*, const void*);

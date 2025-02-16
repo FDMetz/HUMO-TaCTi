@@ -1,6 +1,7 @@
 #include "reproductor.h"
 
-void reproducirSonido(char *nombreSonido, unsigned bucle){
+void reproducirSonido(char *nombreSonido, unsigned bucle)
+{
 
     char ruta[40] = "";
 
@@ -14,6 +15,7 @@ void reproducirSonido(char *nombreSonido, unsigned bucle){
     //SND_LOOP hace que no se repita el sonido cuando finaliza
 }
 
-void mutearSonido(){
+void mutearSonido()
+{
     PlaySound(NULL, 0, 0);
 }

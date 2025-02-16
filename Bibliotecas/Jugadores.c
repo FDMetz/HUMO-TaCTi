@@ -24,11 +24,16 @@ void resetearPuntajeImprimirNombre(void*p)
     printf("- %s\n",j->nombre);
 }
 
-int validarCaracteres(char *cad){
-    while(*cad){
-        if(!(ESLETRA(*cad)) && !(ESNUMERO(*cad))){
+int validarCaracteres(char *cad)
+{
+    while(*cad)
+    {
+        if(!(ESLETRA(*cad)) && !(ESNUMERO(*cad)))
+        {
             return 0;
-        }else{
+        }
+        else
+        {
             cad++;
         }
     }
@@ -47,12 +52,16 @@ int cargarJugadores(tLista *pLista)
     do
     {
 
-        do{
+        do
+        {
             system("cls");
 
-            if(!flag){
+            if(!flag)
+            {
                 printf("Ingrese un nombre de jugador: ");
-            }else{
+            }
+            else
+            {
                 printf("Ingrese un nombre correcto: ");
                 reproducirSonido("error", 1);
             }
@@ -60,14 +69,16 @@ int cargarJugadores(tLista *pLista)
             fgets(nomAux, 200, stdin);
             pAux = strchr(nomAux, '\n');
 
-            if(*pAux){
+            if(*pAux)
+            {
                 *pAux='\0';
             }
 
             flag = 1;
 
 
-        }while(strlen(nomAux)<=3 || strlen(nomAux)>=21 || !validarCaracteres(nomAux));
+        }
+        while(strlen(nomAux)<=3 || strlen(nomAux)>=21 || !validarCaracteres(nomAux));
 
         strcpy(juga.nombre, nomAux);
 
@@ -105,27 +116,31 @@ int cargarJugadores(tLista *pLista)
     return SALIO_BIEN;
 }
 
-int compararPuntos(const void *a, const void *b){
-  return ((tJugador*)a)->puntaje - ((tJugador*)b)->puntaje;
+int compararPuntos(const void *a, const void *b)
+{
+    return ((tJugador*)a)->puntaje - ((tJugador*)b)->puntaje;
 }
 
-void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida, unsigned puntos){
+void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida, unsigned puntos)
+{
 
     char condicionTxt[10];
 
-    if(nPartida-1 == 0){ //Si es la primera partida jugada agregamos el encabezado
+    if(nPartida-1 == 0)  //Si es la primera partida jugada agregamos el encabezado
+    {
         fprintf(pfInforme, "--------- RESUMEN DE PARTIDAS JUGADAS POR %s ---------\n", jugadorActual->nombre);
     }
 
-    switch(puntos){
-        case -1:
-            strcpy(condicionTxt, "Perdió");
+    switch(puntos)
+    {
+    case -1:
+        strcpy(condicionTxt, "Perdió");
         break;
-        case 2:
-            strcpy(condicionTxt, "Empató");
+    case 2:
+        strcpy(condicionTxt, "Empató");
         break;
-        case 3:
-            strcpy(condicionTxt, "Ganó");
+    case 3:
+        strcpy(condicionTxt, "Ganó");
         break;
     }
 
@@ -133,7 +148,8 @@ void agregarAInforme(FILE *pfInforme, tJugador *jugadorActual, unsigned nPartida
 }
 
 
-void agregarRankingAInforme(void *dato, FILE *pfInforme){
+void agregarRankingAInforme(void *dato, FILE *pfInforme)
+{
     tJugador *jugador = (tJugador*)dato;
     fprintf(pfInforme, "Jugador: %-21s | Puntos: %d\n", jugador->nombre, jugador->puntaje);
 }
@@ -154,9 +170,12 @@ void mostrarRanking(tLista *p)
     while(*p)
     {
         sacarInicioLista(p, &jug, sizeof(tJugador));
-        if(i==1){
+        if(i==1)
+        {
             printf("\033[1;32m#%d\033[0m \033[1;32m%-21s\033[0m | PUNTAJE: \033[1;32m%3d\033[0m | ID: %d\n\033[0m", i, jug.nombre,jug.puntaje, jug.idJugador);
-        }else{
+        }
+        else
+        {
             printf("#%d %-21s | PUNTAJE: %3d | ID: %d\n", i, jug.nombre,jug.puntaje, jug.idJugador);
         }
 
