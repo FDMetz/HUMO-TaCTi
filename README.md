@@ -33,6 +33,6 @@ Codigo de Grupo: HUMOR
 5. Una vez terminada sus partidas sera el turno del siguiente jugador en la lista.
 6. Al terminar todas las partidas de los jugadores, el puntaje total de cada jugador sera subido a la API para registrarlo en el ranking Global y se creara un informe detallado de cada partida en la carpeta 'HUMOR-TaCTi\Informes'.
 ## Configuranciones
-* Se puede cambiar la cantidad de partidas jugadas por cada jugador, abrir el archivo **Configuracion** ubicado en la carpeta HUMOR-TaCTi y cambiar el número de partidas.  
+* Se puede cambiar la cantidad de partidas jugadas por cada jugador y activar/desactivar la música del juego, abrir el archivo **Configuracion** ubicado en la carpeta HUMOR-TaCTi y cambiar el número de partidas.  
 
-![Archivo configuracion abierto en el bloc de notas](https://github.com/FDMetz/HUMO-TaCTi/blob/a58d6180fdfe260616f8a5e6bae72fb3958382a9/ScreenshotConfiguracion.png)
+![Archivo configuracion abierto en el bloc de notas](https://github.com/user-attachments/assets/af2a68a1-af30-47f2-bb42-8e6343672b79)
