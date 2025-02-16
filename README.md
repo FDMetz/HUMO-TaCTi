@@ -1,7 +1,8 @@
 # TaCTi
 TaCti es un minijuego de Ta-Te-Ti desarrollado en C como parte del trabajo práctico de la materia "Algoritmos y Estructuras de Datos". El juego permite a los jugadores enfrentarse a una inteligencia artificial básica, registrando los resultados en un servidor mediante una API y generando informes locales con estadísticas de las partidas.
 ## Grupo
-Codigo de Grupo: HUMO
+Nombre de Grupo: HUMO
+Codigo de Grupo: HUMOR
 ## Integrantes:
 * Mascasin Muñoz Maximiano
 * Metz Federico Daniel
