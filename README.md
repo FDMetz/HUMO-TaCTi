@@ -1,5 +1,15 @@
 # TaCTi
-Trabajo practico para la materia Algoritmos y estructuras de datos. Consiste en un minijuego de Tateti (Ta-C-ti) en el que uno o más jugadores pueden jugar contra una inteligencia artificial básica.
+TaCti es un minijuego de Ta-Te-Ti desarrollado en C como parte del trabajo práctico de la materia "Algoritmos y Estructuras de Datos". El juego permite a los jugadores enfrentarse a una inteligencia artificial básica, registrando los resultados en un servidor mediante una API y generando informes locales con estadísticas de las partidas.
+## Grupo
+Codigo de Grupo: HUMOR
+## Integrantes:
+* Mascasin Muñoz Maximiano
+* Metz Federico Daniel
+* Suarez Gonzalo
+## Requisitos
+* Compilador compatible con C
+* Conexion a internet para integracion con la API
+* Archivo de configuracion 'config.txt' para los parametros del juego.
 ## Reglas
 * El jugador con la ficha **X** tendra el primer turno.
 * El orden de los jugadores se sorteara de manera aleatoria.
@@ -10,14 +20,19 @@ Trabajo practico para la materia Algoritmos y estructuras de datos. Consiste en 
     * -1 si el jugador pierde.
 * Por defecto cada jugador jugara 1 partida.
 ## ¿Cómo jugar?
-1. Seleccione la opción Jugar [A] en el menú.
-2. Ingrese el nombre del jugador y presione enter.
-3. Si quiere agregar más de un jugador, presiona la tecla **s** y repitir el punto (2), una vez ingresado todos los jugadores presione la tecla **n**.
-4. El programa mostrara el orden de los jugadores.
-5. Presione una tecla para continuar.
-6. Se le mostrara el tablero y la ficha asignada (X/O).
-7. Jugar.
+1. Al iniciar el programa, se mostrará un menú con tres opciones:
+   [A] Jugar: Permite iniciar una partida contra la IA.
+   [B] Ver ranking equipo: Consulta los puntajes registrados.
+   [C] Salir: Cierra el programa.
+2. Al iniciar la partida, se le solicita al usuario a ingresar los nombre de los jugadores, cuyos turnos seran decididos aleatoriamente si importar el orden de ingreso. Luego al usuario se le mostrara 
+3. A continuacion se le presentara el siguiente tablero al jugador:
+
+![Tablero de referencia](https://github.com/user-attachments/assets/5870e58b-be7b-4505-a4fa-27c79310816c)
+
+4. El programa le pedira ingresar las coordenadas en 'Y' y 'X' para marcar en el tablero con su ficha designada, si el espacio ya esta ocupado se le pedira que ingrese las coordenadas nuevamente.
+5. Una vez terminada sus partidas sera el turno del siguiente jugador en la lista.
+6. Al terminar todas las partidas de los jugadores, el puntaje total de cada jugador sera subido a la API para registrarlo en el ranking Global y se creara un informe detallado de cada partida en la carpeta 'HUMOR-TaCTi\Informes'.
 ## Configuranciones
-Se puede cambiar la cantidad de partidas jugadas por cada jugador, abrir el archivo **Configuracion** ubicado en la carpeta HUMO-TaCTi y cambiar el número de partidas.  
+* Se puede cambiar la cantidad de partidas jugadas por cada jugador, abrir el archivo **Configuracion** ubicado en la carpeta HUMOR-TaCTi y cambiar el número de partidas.  
 
 ![Archivo configuracion abierto en el bloc de notas](https://github.com/FDMetz/HUMO-TaCTi/blob/a58d6180fdfe260616f8a5e6bae72fb3958382a9/ScreenshotConfiguracion.png)
