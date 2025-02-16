@@ -32,7 +32,7 @@ Nombre del grupo: HUMO
 
 4. El programa le pedira ingresar las coordenadas en 'Y' y 'X' para marcar en el tablero con su ficha designada, si el espacio ya esta ocupado se le pedira que ingrese las coordenadas nuevamente.
 5. Una vez terminada sus partidas sera el turno del siguiente jugador en la lista.
-6. Al terminar todas las partidas de los jugadores, el puntaje total de cada jugador sera subido a la API para registrarlo en el ranking Global y se creara un informe detallado de cada partida en la carpeta 'HUMO-TaCTi\Informes'.
+6. Al terminar todas las partidas de los jugadores, el puntaje total de cada jugador sera subido a la API para registrarlo en el ranking Global y se creara un informe detallado de cada partida en la carpeta 'HUMOR-TaCTi\Informes'.
 ## Configuranciones
 * Se puede cambiar la cantidad de partidas jugadas por cada jugador y activar/desactivar la música del juego, abrir el archivo **Configuracion** ubicado en la carpeta HUMO-TaCTi y cambiar el número de partidas.  
 
