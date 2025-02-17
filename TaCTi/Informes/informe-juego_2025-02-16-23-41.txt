@@ -1,0 +1,11 @@
+--------- RESUMEN DE PARTIDAS JUGADAS POR asd1 ---------
+- Partida  1 | Condición: Empató  | Puntos: 2
+Puntos totales: 2
+
+--------- RESUMEN DE PARTIDAS JUGADAS POR Maxi ---------
+- Partida  1 | Condición: Perdió  | Puntos: -1
+Puntos totales: -1
+
+Resultado final:
+Jugador: asd1                  | Puntos: 2
+Jugador: Maxi                  | Puntos: -1

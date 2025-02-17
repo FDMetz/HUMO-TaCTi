@@ -1,0 +1,11 @@
+--------- RESUMEN DE PARTIDAS JUGADAS POR Maxi ---------
+- Partida  1 | Condición: Empató  | Puntos: 2
+Puntos totales: 2
+
+--------- RESUMEN DE PARTIDAS JUGADAS POR Fede ---------
+- Partida  1 | Condición: Ganó    | Puntos: 3
+Puntos totales: 3
+
+Resultado final:
+Jugador: Fede                  | Puntos: 3
+Jugador: Maxi                  | Puntos: 2

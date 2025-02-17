@@ -1,0 +1,16 @@
+--------- RESUMEN DE PARTIDAS JUGADAS POR Maxi ---------
+- Partida  1 | Condición: Empató  | Puntos: 2
+Puntos totales: 2
+
+--------- RESUMEN DE PARTIDAS JUGADAS POR Gonza ---------
+- Partida  1 | Condición: Empató  | Puntos: 2
+Puntos totales: 2
+
+--------- RESUMEN DE PARTIDAS JUGADAS POR Fede ---------
+- Partida  1 | Condición: Empató  | Puntos: 2
+Puntos totales: 2
+
+Resultado final:
+Jugador: Fede                  | Puntos: 2
+Jugador: Gonza                 | Puntos: 2
+Jugador: Maxi                  | Puntos: 2
