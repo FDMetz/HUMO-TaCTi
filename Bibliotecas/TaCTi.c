@@ -90,7 +90,7 @@ void menu()
         case 'C':
         case 'c':
             system("cls");
-            printf("!Gracias por jugar!\nEsto fue una creacion del grupo HUMOR - UNLaM ©\n");
+            printf("\033[1;37m%30s\n\nEsto fue una creacion del grupo HUMO - UNLaM©\n\033[0m", "!Gracias por jugar!");
             break;
 
         default:
