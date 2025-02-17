@@ -35,4 +35,6 @@ void agregarRankingAInforme(void *dato, FILE *pfInforme);
 void mostrarJug(void* d);
 void mostrarRanking(tLista *p);
 
+int validarCaracteres(char *cad);
+
 #endif // JUGADORES_H_INCLUDED

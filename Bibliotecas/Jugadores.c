@@ -24,22 +24,6 @@ void resetearPuntajeImprimirNombre(void*p)
     printf("- %s\n",j->nombre);
 }
 
-int validarCaracteres(char *cad)
-{
-    while(*cad)
-    {
-        if(!(ESLETRA(*cad)) && !(ESNUMERO(*cad)))
-        {
-            return 0;
-        }
-        else
-        {
-            cad++;
-        }
-    }
-
-    return 1;
-}
 
 int cargarJugadores(tLista *pLista)
 {
@@ -181,3 +165,21 @@ void mostrarRanking(tLista *p)
         i++;
     }
 }
+
+int validarCaracteres(char *cad)
+{
+    while(*cad)
+    {
+        if(!(ESLETRA(*cad)) && !(ESNUMERO(*cad)))
+        {
+            return 0;
+        }
+        else
+        {
+            cad++;
+        }
+    }
+
+    return 1;
+}
+
