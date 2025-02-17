@@ -57,13 +57,12 @@ void menu()
             if(!partidaJugada)
                 cargarCoordenadas(&cola);
 
-            // Iniciar el juego con la cantidad de partidas de la configuración
-
             if(config.estadoMusica)
             {
                 reproducirSonido("song2", 1);
             }
 
+            // Iniciar el juego con la cantidad de partidas de la configuración
             iniciarJuego(&listaJugadores, &listaRanking, &cola, config.cantidadPartidas);
             partidaJugada = 1;
             guardarRanking(&listaRanking, config.url, config.codigoGrupo); //Guardar los jugadores en la API
@@ -78,9 +77,10 @@ void menu()
             mutearSonido();
             system("cls");
             printf("\033[0;33m|[][][][][]|\033[1;33m RANKING DE JUGADORES \033[0;33m|[][][][][]|\n\033[0m\n");
+
             obtenerRanking(&listaRankingAPI, config.url, config.codigoGrupo); //Obtener los jugadores desde la API
-            //mapearLista(&listaRankingAPI, mostrarJug);
             mostrarRanking(&listaRankingAPI);
+
             reproducirSonido("op2", 0);
             vaciarLista(&listaRankingAPI);
             printf("\nPresione cualquier tecla para continuar...\n");

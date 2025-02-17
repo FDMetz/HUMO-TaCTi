@@ -1,6 +1,0 @@
---------- RESUMEN DE PARTIDAS JUGADAS POR Gonza ---------
-- Partida  1 | Condición: Empató  | Puntos: 2
-Puntos totales: 2
-
-Resultado final:
-Jugador: Gonza                 | Puntos: 2

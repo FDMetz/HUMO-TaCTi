@@ -111,7 +111,6 @@ int cargarJugadores(tLista *pLista)
     mapearLista(pLista,resetearPuntajeImprimirNombre);
     printf("\nPresione cualquier tecla para continuar...\n");
     getchar(); // Esperar una tecla para continuar
-    //getchar(); // Asegurar que no se salte por buffer
 
     return SALIO_BIEN;
 }
